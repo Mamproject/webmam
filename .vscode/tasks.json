@@ -1,0 +1,32 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "dev",
+      "command": "npm run dev",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "isBackground": true,
+      "type": "shell"
+    },
+    {
+      "label": "storybook",
+      "command": "npm run storybook",
+      "presentation": {
+        "reveal": "always",
+        "panel": "dedicated"
+      },
+      "isBackground": true,
+      "type": "shell"
+    }
+    // {
+    //   "label": "start",
+    //   "dependsOn": ["dev", "storybook", "i18n"],
+    //   "runOptions": {
+    //     "runOn": "folderOpen"
+    //   }
+    // }
+  ]
+}
