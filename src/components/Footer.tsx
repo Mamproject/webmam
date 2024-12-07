@@ -44,3 +44,4 @@ const Footer: FC<FooterProps> = ({ dictionary }) => {
 export default Footer;
 
 
+
