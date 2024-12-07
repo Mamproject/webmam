@@ -50,7 +50,7 @@ La construcción de este colegio permite a su vez disminuir la carga económica 
   vision: lk`Visión`,
   vision_text: lk`MAM quiere dar respuesta a las necesidades educativas de una pequeña parte de la comunidad de Ukunda creando un proyecto en conjunto con la comunidad local. Queremos apoyar, escuchar y acompañar. De esta manera, enfocamos nuestra labor en proporcionar recursos y herramientas que contribuyan al acceso a la educación. Desde MAM defendemos el derecho a una educación digna e inclusiva, especialmente con aquella personas con diversidad funcional, independientemente de su lugar de origen, contexto socioeconómico o situación familiar.`,
   base: lk`Base`,
-  base_1: lk`MAM nace en 2022 después de que Marta conoce a Mama Gladys en Ukunda, Kenia. A través de ella conoce las necesidades y dificultades de las familias con miembros con diversidad funcional .`,
+  base_1: lk`MAM nace en 2022 después de que Marta conoce a Mama Gladys en Ukunda, Kenia. A través de ella detecta las necesidades y dificultades de las familias con miembros con diversidad funcional .`,
   first_brick: lk`Primer ladrillo`,
   first_brick_1: lk`Al volver de su viaje, Marta comparte su visión y experiencia en Ukunda con Ángela y deciden ponerle rumbo a este proyecto, no sin antes hacer una parada en Asturias y transmitírselo a Marina.`,
   first_brick_2: lk`Las desigualdades y barreras con las que tienen que luchar diariamente los niños/as para acceder a una educación digna, fue lo que las motivó para apoyar este proyecto.`,
