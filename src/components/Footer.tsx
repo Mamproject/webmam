@@ -28,7 +28,8 @@ const Footer: FC<FooterProps> = ({ dictionary }) => {
         <section className="flex flex-wrap items-center justify-center gap-4 text-lg text-white">
           <button onClick={() => setTermsModal(true)}>{dictionary.privacy_policy}</button>
           <button onClick={() => setCookiesModal(true)}>{dictionary.cookies_policy}</button>
-          <Link href="mailto:mamproyectukunda@gmail.com">{dictionary.contact}</Link>
+          <Link href="mailto:mamproyectukunda@gmail.com" className="underline hover:text-purple-400"> {dictionary.contact} </Link>
+
         </section>
 
         <section className="flex justify-center gap-4">
