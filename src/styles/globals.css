@@ -18,4 +18,9 @@
   :focus {
     @apply outline-2 outline-offset-2 outline-purple;
   }
+
+  /* Justificar textos */
+  p, div {
+    @apply text-justify;
+  }
 }
