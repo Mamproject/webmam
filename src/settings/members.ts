@@ -5,17 +5,17 @@ import type { Dictionary } from "@/i18n/dictionaries/es";
 export const members = (dictionary: Dictionary): MemberCardProps[] => [
   {
     name: "Marta Falguera",
-    title: dictionary.secretary,
+    title: dictionary.president,
     pictureSrc: picPlaceholder,
   },
   {
     name: "Ángela Suárez",
-    title: dictionary.treasurer,
+    title: dictionary.secretary,
     pictureSrc: picPlaceholder,
   },
   {
     name: "Marina Riera",
-    title: dictionary.president,
+    title: dictionary.treasurer,
     pictureSrc: picPlaceholder,
   },
   {
