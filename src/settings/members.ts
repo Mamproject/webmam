@@ -14,7 +14,7 @@ export const members = (dictionary: Dictionary): MemberCardProps[] => [
     pictureSrc: picPlaceholder,
   },
   {
-    name: "Marina Riera",
+    name: "Miguel Sánchez",
     title: dictionary.treasurer,
     pictureSrc: picPlaceholder,
   },
