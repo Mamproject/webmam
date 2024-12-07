@@ -23,7 +23,7 @@ const es = {
   bridge_partners: lk`Socios/as puente`,
   contact: lk`Contacto`,
   secretary: lk`Secretaria`,
-  treasurer: lk`Tesorera`,
+  treasurer: lk`Tesorero`,
   president: lk`Presidenta`,
   kenya_manager: lk`Gestora de proyecto en Kenia`,
   web_development: lk`Desarrollo web`,
