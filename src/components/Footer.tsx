@@ -27,14 +27,8 @@ const Footer: FC<FooterProps> = ({ dictionary }) => {
 
         <section className="flex flex-wrap items-center justify-center gap-4 text-lg text-white">
           <button onClick={() => setTermsModal(true)}>{dictionary.privacy_policy}</button>
-
           <button onClick={() => setCookiesModal(true)}>{dictionary.cookies_policy}</button>
-
-                    
-          <Link href="/become-member">{dictionary.become_member}</Link>
-          <Link href="/about">{dictionary.about_us}</Link>
-          <Link href="/payments">{dictionary.manage_payments}</Link>
-
+          <Link href="mailto:mamproyectukunda@gmail.com">{dictionary.contact}</Link>
         </section>
 
         <section className="flex justify-center gap-4">
@@ -48,3 +42,4 @@ const Footer: FC<FooterProps> = ({ dictionary }) => {
 };
 
 export default Footer;
+
