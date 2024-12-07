@@ -18,24 +18,4 @@ export const members = (dictionary: Dictionary): MemberCardProps[] => [
     title: dictionary.treasurer,
     pictureSrc: picPlaceholder,
   },
-  {
-    name: "Abdul Maqbul",
-    title: dictionary.kenya_manager,
-    pictureSrc: picPlaceholder,
-  },
-  {
-    name: "Leah Wambu",
-    title: dictionary.kenya_manager,
-    pictureSrc: picPlaceholder,
-  },
-  {
-    name: "Mama Gladys",
-    title: dictionary.kenya_manager,
-    pictureSrc: picPlaceholder,
-  },
-  {
-    name: "Daniel Mateos",
-    title: dictionary.web_development,
-    pictureSrc: picPlaceholder,
-  },
 ];
