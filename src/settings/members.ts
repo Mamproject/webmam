@@ -6,7 +6,7 @@ export const members = (dictionary: Dictionary): MemberCardProps[] => [
   {
     name: "Marta Falguera",
     title: dictionary.president,
-    pictureSrc: picPlaceholder,
+    pictureSrc: "src/assets/MartaSillaRodas.JPG",
   },
   {
     name: "Ángela Suárez",
