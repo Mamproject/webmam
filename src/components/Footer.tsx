@@ -30,9 +30,6 @@ const Footer: FC<FooterProps> = ({ dictionary }) => {
 
           <button onClick={() => setCookiesModal(true)}>{dictionary.cookies_policy}</button>
 
-          <Link href="/become-member">{dictionary.become_member}</Link>
-          <Link href="/about">{dictionary.about_us}</Link>
-          <Link href="/payments">{dictionary.manage_payments}</Link>
         </section>
 
         <section className="flex justify-center gap-4">
