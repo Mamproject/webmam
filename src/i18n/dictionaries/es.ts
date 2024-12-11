@@ -62,7 +62,7 @@ La construcción de este colegio permite a su vez disminuir la carga económica 
   brick_value: lk`1 ladrillo violeta = 5€`,
   what_is_a_violet_brick_question: lk`¿Qué es un ladrillo violeta?`,
   what_is_a_violet_brick_answer: lk`Con MAM Project queremos cambiar las cosas y para ello hemos creado una unidad de medida única, que sigue y transmite los valores que queremos transmitir en esta ONG.
-Cuando haces una donación a MAM Project, no pones dinero, aportas un ladrillo en este puente que estamos contrtuyendo para unir dos comunidades. De esta manera tus 5€ se transforman en una pared, una silla, un libro, un bol de arroz...`,
+Cuando haces una donación a MAM Project, no pones dinero, aportas un ladrillo en este puente que estamos construyendo para unir dos comunidades. De esta manera tus 5€ se transforman en una pared, una silla, un libro, un bol de arroz...`,
   bridge_partners_description: lk`Aquellas que te ayudan a transitar de un lugar a otro y a sortear obstáculos acompañándote a lo largo del camino
 
 Nosotras lo tenemos claro, queremos ser esas personas capaces de ayudar a conectar y dar visibilidad a un problema real con el objetivo de conectarlo con el mundo.`,
