@@ -8,7 +8,7 @@ export const socialMediaData = {
   },
   instagram: {
     logo: instagramLogo,
-    url: process.env.NEXT_PUBLIC_INSTAGRAM_URL,
+    url: process.env.NEXT_PUBLIC_INSTAGRAM_URL=https://www.instagram.com/mamproject_ukunda?igsh=N3Z3MGluZDNiZTEx,
   },
 };
 
