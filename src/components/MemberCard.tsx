@@ -12,7 +12,7 @@ export interface MemberCardProps {
 const MemberCard: FC<MemberCardProps> = ({ name, title, pictureSrc }) => (
   <article className="flex flex-col items-center gap-1">
     <div className="h-64 w-64 overflow-hidden rounded-full bg-purple">
-      <Image src={pictureSrc} alt={name} width={256} height={256} className="object-cover" />
+      <Image src={pictureSrc} alt={name} width={256} height={256} className="object-cover object-center" />
     </div>
 
     <h3 className="text-lg uppercase md:text-xl">{name}</h3>
