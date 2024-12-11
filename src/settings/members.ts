@@ -8,7 +8,7 @@ export const members = (dictionary: Dictionary): MemberCardProps[] => [
   {
     name: "Marta Falguera",
     title: dictionary.president,
-    pictureSrc: picMarta,
+    pictureSrc: "https://via.placeholder.com/150",
   },
   {
     name: "Ángela Suárez",
