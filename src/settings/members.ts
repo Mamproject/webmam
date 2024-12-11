@@ -1,6 +1,6 @@
 import type { MemberCardProps } from "@/components/MemberCard";
 import picPlaceholder from "@/assets/pic_placeholder.png";
-import picMarta from "@/assets/MartaSillaRodas.JPG"; 
+import picMarta from "@/assets/martafalguera.JPG"; 
 import type { Dictionary } from "@/i18n/dictionaries/es";
 
 
