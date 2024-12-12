@@ -27,7 +27,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
             fill
             className="object-cover"
             priority
-            sizes="(min-width: 3840) 50vw, 100vw"
+            sizes="(min-width: 1280) 50vw, 100vw"
             placeholder="blur"
           />
         </div>
