@@ -19,8 +19,8 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
 
   return (
     <main>
-      <article className="relative mx-auto mb-10 w-full max-w-[1920px] md:h-[40rem] lg:h-[32rem]">
-        <div className="relative h-[40vh] w-full md:h-full">
+      <article className="relative mx-auto mb-10 w-full max-w-[1920px] md:h-[50vh] lg:h-[60vh]">
+        <div className="relative h-[50vh] w-full lg:h-[60vh]">
           <Image
             src={section1Pic}
             alt={dictionary.gladys_with_children}
