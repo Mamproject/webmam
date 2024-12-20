@@ -1,15 +1,9 @@
-import kenyaRoadImg from "@/assets/kenya_road.jpg";
-import marketImg from "@/assets/market.jpg";
-import studentsImg from "@/assets/students.jpg";
-import tableAndChairsImg from "@/assets/table_and_chairs.jpg";
-import wheelChairsImg from "@/assets/wheel_chairs.jpg";
 import { BigArticle, SmallArticle } from "@/components/Article";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
-import MemberCard from "@/components/MemberCard";
 import { getDictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/i18n-config";
-import { members } from "@/settings/members";
+
 
 export default async function About({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang);
