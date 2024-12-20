@@ -39,9 +39,9 @@ export default async function Transparency({
             {dictionary.donde_va_tu_dinero}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
+            {dictionary.donde_va_tu_dinero}
           </p>
-
-          </a>
+          {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
         </section>
       </Container>
 
@@ -49,8 +49,11 @@ export default async function Transparency({
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.construyendo_puentes}
-          </Heading>
-          
+           </Heading>
+          <p className="text-lg text-gray-700 mb-6">
+            {dictionary.donde_va_tu_dinero}
+          </p>
+          {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
         </section>
       </Container>
 
