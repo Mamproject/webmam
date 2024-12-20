@@ -41,7 +41,7 @@ export default async function Join({
             href="https://gofund.me/8bdad21b"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
+            className="inline-block bg-purple text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
           >
             {dictionary.donation_button || "Ir a GoFundMe"}
           </a>
