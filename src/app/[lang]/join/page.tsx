@@ -31,7 +31,7 @@ export default async function Join({
       <Container horizontal className="mb-8 md:mb-16">
         {/* Sección para redirigir a GoFundMe */}
         <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg text-center">
-          <h2 className="text-2xl font-bold text-purple-600 mb-4">
+          <h2 className="text-2xl font-bold text-purple mb-4">
             {dictionary.donation_title || "Haz tu Donación"}
           </h2>
           <p className="text-gray-700 mb-6">
