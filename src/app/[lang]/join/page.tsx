@@ -17,7 +17,7 @@ export default async function Join({
   searchParams: JoinSearchParams;
 }) {
   const dictionary = await getDictionary(lang);
-  const parsedSearchParams = parseJoinSearchParams(searchParams);
+ // const parsedSearchParams = parseJoinSearchParams(searchParams);
 
   return (
     <main className="py-8">
