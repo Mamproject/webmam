@@ -17,7 +17,7 @@ export default async function Transparency({
           {dictionary.transparency}
         </Heading>
         <p className="text-center text-lg text-gray-700 mt-4">
-          {dictionary. transparency_explain}
+          {dictionary.transparency_explain}
         </p>
       </Container>
 
@@ -27,7 +27,7 @@ export default async function Transparency({
             {dictionary.organigrama}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-           // {dictionary.donde_va_tu_dinero}
+            {dictionary.donde_va_tu_dinero}
           </p>
           {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
         </section>
@@ -39,7 +39,7 @@ export default async function Transparency({
             {dictionary.donde_va_tu_dinero}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-            //{dictionary.financial_reports_description || "Puedes consultar nuestros informes anuales y de auditoría para conocer cómo gestionamos los fondos de manera transparente."}
+            {dictionary.financial_reports_description || "Puedes consultar nuestros informes anuales y de auditoría para conocer cómo gestionamos los fondos de manera transparente."}
           </p>
           <a
             href="/informe-anual.pdf" // Aquí puedes colocar el enlace a tus informes
@@ -47,7 +47,7 @@ export default async function Transparency({
             rel="noopener noreferrer"
             className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
           >
-           // {dictionary.view_report || "Ver informe completo"}
+            {dictionary.view_report || "Ver informe completo"}
           </a>
         </section>
       </Container>
@@ -58,7 +58,7 @@ export default async function Transparency({
             {dictionary.construyendo_puentes}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-           // {dictionary.projects_description || "Aquí puedes conocer algunos de los proyectos que hemos financiado gracias a tu apoyo."}
+            {dictionary.projects_description || "Aquí puedes conocer algunos de los proyectos que hemos financiado gracias a tu apoyo."}
           </p>
           {/* Aquí puedes agregar un listado de proyectos o imágenes de los mismos */}
         </section>
@@ -70,7 +70,7 @@ export default async function Transparency({
             {dictionary.canal_denuncias}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-           {dictionary.text_canal_denuncias}
+            {dictionary.text_canal_denuncias}
           </p>
           {/* Aquí puedes agregar un listado de proyectos o imágenes de los mismos */}
         </section>
