@@ -14,20 +14,20 @@ export default async function Transparency({
     <main className="py-8">
       <Container horizontal>
         <Heading level={1} color="purple" className="text-center">
-          {dictionary.transparency_title || "Nuestro Compromiso con la Transparencia"}
+          {dictionary.transparency"}
         </Heading>
         <p className="text-center text-lg text-gray-700 mt-4">
-          {dictionary.transparency_intro || "En nuestra ONG, creemos que la transparencia es clave para generar confianza y asegurar que cada donación sea utilizada de la manera más eficiente posible."}
+          {dictionary. transparency_explain}
         </p>
       </Container>
 
       <Container horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
-            {dictionary.how_donations_are_used || "¿Cómo utilizamos tus donaciones?"}
+            {dictionary.organigrama}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-            {dictionary.donations_description || "Las donaciones que recibimos son destinadas directamente a proyectos de impacto social, asegurando siempre el máximo beneficio para las comunidades que apoyamos."}
+           // {dictionary.donde_va_tu_dinero}
           </p>
           {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
         </section>
@@ -36,10 +36,10 @@ export default async function Transparency({
       <Container horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
-            {dictionary.financial_reports || "Informes Financieros"}
+            {dictionary.donde_va_tu_dinero}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-            {dictionary.financial_reports_description || "Puedes consultar nuestros informes anuales y de auditoría para conocer cómo gestionamos los fondos de manera transparente."}
+            //{dictionary.financial_reports_description || "Puedes consultar nuestros informes anuales y de auditoría para conocer cómo gestionamos los fondos de manera transparente."}
           </p>
           <a
             href="/informe-anual.pdf" // Aquí puedes colocar el enlace a tus informes
@@ -47,7 +47,7 @@ export default async function Transparency({
             rel="noopener noreferrer"
             className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
           >
-            {dictionary.view_report || "Ver informe completo"}
+           // {dictionary.view_report || "Ver informe completo"}
           </a>
         </section>
       </Container>
@@ -55,10 +55,22 @@ export default async function Transparency({
       <Container horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
-            {dictionary.projects_funded || "Proyectos Financiados"}
+            {dictionary.construyendo_puentes}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-            {dictionary.projects_description || "Aquí puedes conocer algunos de los proyectos que hemos financiado gracias a tu apoyo."}
+           // {dictionary.projects_description || "Aquí puedes conocer algunos de los proyectos que hemos financiado gracias a tu apoyo."}
+          </p>
+          {/* Aquí puedes agregar un listado de proyectos o imágenes de los mismos */}
+        </section>
+      </Container>
+
+      <Container horizontal className="mt-8">
+        <section>
+          <Heading level={2} color="purple" className="text-center mb-4">
+            {dictionary.canal_denuncias}
+          </Heading>
+          <p className="text-lg text-gray-700 mb-6">
+           {dictionary.text_canal_denuncias}
           </p>
           {/* Aquí puedes agregar un listado de proyectos o imágenes de los mismos */}
         </section>
