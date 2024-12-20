@@ -14,7 +14,7 @@ export default async function Transparency({
     <main className="py-8">
       <Container horizontal>
         <Heading level={1} color="purple" className="text-center">
-          {dictionary.transparency"}
+          {dictionary.transparency}
         </Heading>
         <p className="text-center text-lg text-gray-700 mt-4">
           {dictionary. transparency_explain}
