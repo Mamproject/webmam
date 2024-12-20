@@ -1,9 +1,16 @@
 import { BigArticle, SmallArticle } from "@/components/Article";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
+import MemberCard from "@/components/MemberCard"; // Importa el componente MemberCard
 import { getDictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/i18n-config";
 
+// Asegúrate de que la función members exista
+// Aquí tienes un ejemplo temporal:
+const members = (dictionary: any) => [
+  { name: "John Doe", role: "Developer", bio: "Lorem ipsum", picture: "path/to/image.jpg" },
+  { name: "Jane Smith", role: "Designer", bio: "Lorem ipsum", picture: "path/to/image.jpg" },
+];
 
 export default async function About({ params: { lang } }: { params: { lang: Locale } }) {
   const dictionary = await getDictionary(lang);
@@ -83,3 +90,4 @@ export default async function About({ params: { lang } }: { params: { lang: Loca
     </main>
   );
 }
+
