@@ -6,18 +6,20 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/i18n-config";
 import Image from "next/image";
 import CreateBrickSections from "./components/create-brick-sections";
-import type { JoinSearchParams } from "./utils/parse-join-page-params";
-import { parseJoinSearchParams } from "./utils/parse-join-page-params";
+// Importación de JoinSearchParams y parseJoinSearchParams eliminada, ya que no se usan
+// import type { JoinSearchParams } from "./utils/parse-join-page-params";
+// import { parseJoinSearchParams } from "./utils/parse-join-page-params";
 
 export default async function Join({
   params: { lang },
-  searchParams,
+  // searchParams eliminada, ya que no se usa
 }: {
   params: { lang: Locale };
-  searchParams: JoinSearchParams;
+  // searchParams: JoinSearchParams; // No se usa, por lo que se ha eliminado
 }) {
   const dictionary = await getDictionary(lang);
- // const parsedSearchParams = parseJoinSearchParams(searchParams);
+  // Si planeas usar 'searchParams' más tarde, descomenta y utiliza la función 'parseJoinSearchParams' de acuerdo a tus necesidades
+  // const parsedSearchParams = parseJoinSearchParams(searchParams);
 
   return (
     <main className="py-8">
