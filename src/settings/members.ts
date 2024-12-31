@@ -1,6 +1,7 @@
 import type { MemberCardProps } from "@/components/MemberCard";
 import picPlaceholder from "@/assets/pic_placeholder.png";
 import picMarta from "@/assets/marta_falguera.png";
+import picLua from "@/assets/Lua_santamaria.jpg";
 import type { Dictionary } from "@/i18n/dictionaries/es";
 
 
@@ -23,6 +24,6 @@ export const members = (dictionary: Dictionary): MemberCardProps[] => [
   {
     name: "Lua Santamaría",
     title: dictionary.redessociais,
-    pictureSrc: picPlaceholder,
+    pictureSrc: picLua,
   },
 ];
