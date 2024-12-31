@@ -12,7 +12,7 @@ export default async function Transparency({
 
   return (
     <main className="py-8">
-      <Container horizontal>
+      <Container horizontal> 
         <Heading level={1} color="purple" className="text-center">
           {dictionary.transparency}
         </Heading>
