@@ -20,4 +20,9 @@ export const members = (dictionary: Dictionary): MemberCardProps[] => [
     title: dictionary.treasurer,
     pictureSrc: picPlaceholder,
   },
+  {
+    name: "Lua Santamaría",
+    title: dictionary.redessociais,
+    pictureSrc: picPlaceholder,
+  },
 ];
