@@ -70,9 +70,6 @@ const Menu: FC<MenuProps> = ({ open, onClose, closeLabel, dictionary }) => {
                 <MenuSubsectionLink title={dictionary.create_brick} href="/join#create-brick" />
               </MenuSectionWrapper>
               <MenuSectionLink title={dictionary.become_member} href="/become-member" />
-              <MenuSectionWrapper title={dictionary.transparency} {...getAccordionItemHandlers(dictionary.transparency)}>
-                  <MenuSubsectionLink title={dictionary.transparency} href={`/${dictionary.lang}/transparency/pag_transparencia`} />
-              </MenuSectionWrapper>
             </Accordion.Root>
 
             <Dialog.Close
