@@ -71,9 +71,6 @@ const Menu: FC<MenuProps> = ({ open, onClose, closeLabel, dictionary }) => {
               </MenuSectionWrapper>
               <MenuSectionLink title={dictionary.become_member} href="/become-member" />
             </Accordion.Root>
-            <MenuSectionWrapper title={dictionary.transparency} {...getAccordionItemHandlers(dictionary.transparency)}>
-                  <MenuSubsectionLink title={dictionary.transparency} href="/transparency" />
-              </MenuSectionWrapper>
 
             <Dialog.Close
               className="relative grid h-6 w-6 cursor-pointer place-items-center rounded-full"
