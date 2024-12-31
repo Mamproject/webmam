@@ -25,6 +25,7 @@ const es = {
   secretary: lk`Secretaria`,
   treasurer: lk`Tesorero`,
   president: lk`Presidenta`,
+  redessociais: lk`Redes sociais`,
   kenya_manager: lk`Gestora de proyecto en Kenia`,
   web_development: lk`Desarrollo web`,
   gladys_with_children: lk`Mama Gladys rodeada de niños`,
