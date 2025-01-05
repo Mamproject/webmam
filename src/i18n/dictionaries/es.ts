@@ -43,8 +43,6 @@ const es = {
   special_needs_children_pic: lk`Niñas/os con diversidad funcional`,
   moms_snc_pic: lk`Madres de hijos con diversidad funcional`,
   bullets_footer: lk`En MAM Project lo tenemos muy claro, queremos ser esas personas puente que consigan constuirir una esctructura física que de un soporte educativo 360 a las niñas y niños de la comunidad.`,
-
-La construcción de este colegio permite a su vez disminuir la carga económica y de cuidados de las madres, quienes son las encargadas de llevar todo el peso familiar.`,
   about_us: lk`Sobre nosotras`,
   scope: lk`Objetivo`,
   scope_1: lk`MAM nace con el objetivo de atender las carencias educativas que enfrentan actualmente muchos niños y niñas, tanto con diversidad funcional, como sin ella, en la comunidad de Ukunda. Para lograrlo, queremos promover la creación de una comunidad educativa que cuente con los recursos educativos necesarios para que todos los niños y niñas puedan tener acceso a una educación digna. Además, dentro del colegio habilitaremos un espacio para madres jóvenes que no cuenten con recursos económicos para que puedan acceder a un trabajo y cuidar de sus hijos al mismo tiempo.`,
