@@ -57,29 +57,16 @@ export default async function Transparency({
         </section>
       </Container>
 
-      <Container horizontal className="mt-8">
+     <Container horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.canal_denuncias}
           </Heading>
-          <p className="text-lg text-gray-700 mb-6">
-            {dictionary.text_canal_denuncias}
-          </p>
-          {/* Aquí puedes agregar un listado de proyectos o imágenes de los mismos */}
-        </section>
-      </Container>
-
-     <Container horizontal className="mt-8">
-        <section className="text-center">
-          <p className="text-lg text-gray-700 mb-6">
-          {dictionary.contact}
-          </p>
-      <a
-        href="mailto: mamprojectukunda@gmail.com"  
-      className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple transition" >
-      {dictionary.text_canal_denuncias}
-    </a>
-  </section>
+        <a href="mailto: mamprojectukunda@gmail.com"  
+        className="inline-block bg-purple text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple transition" >
+        {dictionary.text_canal_denuncias}
+       </a>
+      </section>
 </Container>
     </main>
   );
