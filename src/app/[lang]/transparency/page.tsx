@@ -69,19 +69,18 @@ export default async function Transparency({
         </section>
       </Container>
 
-      <Container horizontal className="mt-8">
+     <Container horizontal className="mt-8">
         <section className="text-center">
           <p className="text-lg text-gray-700 mb-6">
-            {dictionary.contact}
+          {dictionary.contact}
           </p>
-          <a
-            href="/contacto"
-            className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
-          >
-            {dictionary.text_canal_denuncias}
-          </a>
-        </section>
-      </Container>
+      <a
+        href="mamprojectukunda@gmail.com"  
+      className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple transition" >
+      {dictionary.text_canal_denuncias}
+    </a>
+  </section>
+</Container>
     </main>
   );
 }
