@@ -23,29 +23,4 @@
   p, div {
     @apply text-justify;
   }
-  
-  .members-container {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
   }
-
-  .member-card {
-    width: calc(33.33% - 20px); /* Tres columnas */
-    max-width: 250px;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
-    .member-card {
-      width: calc(50% - 20px); /* Dos columnas en pantallas pequeñas */
-    }
-  }
-
-  @media (max-width: 480px) {
-    .member-card {
-      width: 100%; /* Una columna en pantallas muy pequeñas */
-    }
-  }
-}
