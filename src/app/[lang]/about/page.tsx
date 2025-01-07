@@ -79,7 +79,7 @@ export default async function About({ params: { lang } }: { params: { lang: Loca
             {dictionary.bridge_people}
           </Heading>
 
-          <div className="flex flex-wrap items-center justify-evenly gap-8">
+          <div className="grid-container gap-8">
             {members(dictionary).map((member) => (
               <MemberCard {...member} key={member.name} />
             ))}
