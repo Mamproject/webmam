@@ -81,8 +81,10 @@ export default async function About({ params: { lang } }: { params: { lang: Loca
 
        <div className="members-container">
           {members(dictionary).map((member) => (
-            <MemberCard {...member} key={member.name} className="member-card" />
-            ))}
+            <div className="member-card" key={member.name}>
+            <MemberCard {...member} />
+          </div>
+          ))}
       </div>
         </section>
       </Container>
