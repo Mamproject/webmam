@@ -29,16 +29,11 @@ export default async function Transparency({
           <p className="text-lg text-gray-700 mb-6">
             {dictionary. en_construccion}
           </p>
-          <iframe 
-      src="https://drive.google.com/file/d/1N5F7CjgxKDQ2YJlByLqlnbDHZoK25Qhh/view?usp=sharing"
-      width="100%" 
-      height="600px" 
-      frameBorder="0"
-      /> 
+
         </section>
       </Container>
 
-      <Container id="donde_va_tu_dinero" horizontal className="mt-8">
+      <Container id="donde_va_tu_dinero" horizontal className="mt-8"
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.donde_va_tu_dinero}
