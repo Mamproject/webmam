@@ -187,8 +187,7 @@ MAM promocionará tu evento en nuestras redes sociales.`,
 En breve recibirás un correo con los detalles de tu aportación.`,
   manage_payments: lk`Gestionar mis pagos`,
   bottles_building_alt: lk`Dos mujeres frente a un muro hecho con botellas de plástico`,
-  transparency_explain: lk`En MAM creemos en un mundo justo y libre de corrupción, en el que se actúe con integridad y transparencia. Más allá de los aspectos legales, sabemos que MAM no sería posible sin todos vosotros (o sin toda la gente que hace posible…etc.). Como es natural, es probable que te surjan dudas sobre el funcionamiento de nuestra organización. Podrías querer saber cómo obtenemos financiamiento, de qué manera se administran los recursos o quiénes participan en nuestras iniciativas, entre otras cuestiones.
-Para responderlo, aquí encontrarás documentación relativa a nuestra actividad.`,
+  transparency_explain: lk`En MAM creemos en un mundo justo y libre de corrupción, en el que se actúe con integridad y transparencia. Más allá de los aspectos legales, sabemos que MAM no sería posible sin todos vosotros (o sin toda la gente que hace posible…etc.). Como es natural, es probable que te surjan dudas sobre el funcionamiento de nuestra organización. Podrías querer saber cómo obtenemos financiamiento, de qué manera se administran los recursos o quiénes participan en nuestras iniciativas, entre otras cuestiones. Para responderlo, aquí encontrarás documentación relativa a nuestra actividad.`,
   organigrama: lk`¿Cómo nos organizamos?`,
   donde_va_tu_dinero: lk`¿Dónde va tu dinero?`,
   construyendo_puentes: lk`Construyendo puentes`,
@@ -199,3 +198,4 @@ Para responderlo, aquí encontrarás documentación relativa a nuestra actividad
 export type Dictionary = typeof es;
 
 export default es as Dictionary;
+ 
