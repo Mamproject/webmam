@@ -27,7 +27,7 @@ export default async function Transparency({
             {dictionary.organigrama}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-            {dictionary.donde_va_tu_dinero}
+            {dictionary. en_construccion}
           </p>
           {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
         </section>
@@ -39,7 +39,7 @@ export default async function Transparency({
             {dictionary.donde_va_tu_dinero}
           </Heading>
           <p className="text-lg text-gray-700 mb-6">
-            {dictionary.donde_va_tu_dinero}
+            {dictionary. en_construccion}
           </p>
           {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
         </section>
@@ -51,7 +51,7 @@ export default async function Transparency({
             {dictionary.construyendo_puentes}
            </Heading>
           <p className="text-lg text-gray-700 mb-6">
-            {dictionary.donde_va_tu_dinero}
+            {dictionary. en_construccion}
           </p>
           {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
         </section>
