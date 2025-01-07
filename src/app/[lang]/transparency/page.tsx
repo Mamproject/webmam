@@ -16,7 +16,7 @@ export default async function Transparency({
         <Heading level={1} color="purple" className="text-center">
           {dictionary.transparency}
         </Heading>
-        <p className="text-center text-lg text-gray-700 mt-4">
+        <p className="text-lg text-gray-700 mt-4">
           {dictionary.transparency_explain}
         </p>
       </Container>
