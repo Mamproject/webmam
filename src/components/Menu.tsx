@@ -71,6 +71,13 @@ const Menu: FC<MenuProps> = ({ open, onClose, closeLabel, dictionary }) => {
               </MenuSectionWrapper>
               <MenuSectionLink title={dictionary.become_member} href="/become-member" />
               <MenuSectionLink title={dictionary.transparency} href="/transparency" />
+              <MenuSectionWrapper title={dictionary.transparency} {...getAccordionItemHandlers(dictionary.transparency)}>
+                <MenuSubsectionLink title={dictionary.transparency} href="/transparency" />
+                <MenuSubsectionLink title={dictionary.organigrama} href="/transparency#organigrama" />
+                <MenuSubsectionLink title={dictionary.donde_va_tu_dinero} href="/transparency#donde_va_tu_dinero" />
+                <MenuSubsectionLink title={dictionary.construyendo_puentes} href="/transparency#construyendo_puentes" />
+                <MenuSubsectionLink title={dictionary.canal_denuncias} href="/transparency#canal_denuncias" />
+              </MenuSectionWrapper>
             </Accordion.Root>
 
             <Dialog.Close
