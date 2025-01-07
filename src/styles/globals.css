@@ -23,4 +23,25 @@
   p, div {
     @apply text-justify;
   }
+    .grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas en la primera fila */
+    grid-auto-rows: auto;
+    gap: 20px;
+  }
+
+  .grid-container > :nth-child(n + 4) {
+    grid-column: span 2; /* Las tarjetas 4 y 5 ocuparán dos columnas */
+    justify-self: center;
+  }
+
+  @media (max-width: 768px) {
+    .grid-container {
+      grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+    }
+
+    .grid-container > :nth-child(n + 4) {
+      grid-column: span 1;
+      }
+  }
 }
