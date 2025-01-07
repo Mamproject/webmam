@@ -32,7 +32,7 @@ export default async function Transparency({
         </section>
       </Container>
 
-      <Container id="donde_va_tu_dinero" horizontal className="mt-8"
+      <Container id="donde_va_tu_dinero" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.donde_va_tu_dinero}
