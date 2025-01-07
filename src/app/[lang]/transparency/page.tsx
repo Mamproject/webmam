@@ -29,7 +29,12 @@ export default async function Transparency({
           <p className="text-lg text-gray-700 mb-6">
             {dictionary. en_construccion}
           </p>
-          {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
+          <iframe 
+      src="@/assets/Resolucion inscricion Asoc MAM PROJECT.pdf"
+      width="100%" 
+      height="600px" 
+      frameBorder="0"
+      /> 
         </section>
       </Container>
 
