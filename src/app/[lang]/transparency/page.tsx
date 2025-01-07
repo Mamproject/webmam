@@ -30,7 +30,7 @@ export default async function Transparency({
             {dictionary. en_construccion}
           </p>
           <iframe 
-      src="@/assets/Resolucion inscricion Asoc MAM PROJECT.pdf"
+      src="https://github.com/Mamproject/webmam/blob/6db371397ada71037fc6ae481cd4d35097a29ed0/src/assets/Resolucion%20inscricion%20Asoc%20MAM%20PROJECT.pdf"
       width="100%" 
       height="600px" 
       frameBorder="0"
