@@ -75,7 +75,7 @@ export default async function Transparency({
           {dictionary.contact}
           </p>
       <a
-        href="mamprojectukunda@gmail.com"  
+        href="mailto: mamprojectukunda@gmail.com"  
       className="inline-block bg-purple-600 text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple transition" >
       {dictionary.text_canal_denuncias}
     </a>
