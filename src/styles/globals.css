@@ -23,16 +23,18 @@
   p, div {
     @apply text-justify;
   }
-    .grid-container {
+ .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr); /* Tres columnas en la primera fila */
-    grid-auto-rows: auto;
     gap: 20px;
   }
 
   .grid-container > :nth-child(n + 4) {
-    grid-column: span 2; /* Las tarjetas 4 y 5 ocuparán dos columnas */
-    justify-self: center;
+    grid-column: span 3 / span 3; /* Ocupa las tres columnas */
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas en la segunda fila */
+    justify-content: center;
+    gap: 20px;
   }
 
   @media (max-width: 768px) {
@@ -41,7 +43,7 @@
     }
 
     .grid-container > :nth-child(n + 4) {
-      grid-column: span 1;
-      }
+      grid-template-columns: repeat(1, 1fr); /* Una columna en pantallas pequeñas */
+    }
   }
 }
