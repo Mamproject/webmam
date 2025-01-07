@@ -21,7 +21,7 @@ export default async function Transparency({
         </p>
       </Container>
 
-      <Container horizontal className="mt-8">
+      <Container id="organigrama" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.organigrama}
@@ -33,7 +33,7 @@ export default async function Transparency({
         </section>
       </Container>
 
-      <Container horizontal className="mt-8">
+      <Container id="donde_va_tu_dinero" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.donde_va_tu_dinero}
@@ -45,7 +45,7 @@ export default async function Transparency({
         </section>
       </Container>
 
-      <Container horizontal className="mt-8">
+      <Container id="construyendo_puentes" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.construyendo_puentes}
@@ -57,7 +57,7 @@ export default async function Transparency({
         </section>
       </Container>
 
-     <Container horizontal className="mt-8">
+     <Container id="canal_denuncias" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="text-center mb-4">
             {dictionary.canal_denuncias}
