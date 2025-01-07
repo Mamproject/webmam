@@ -75,7 +75,7 @@ export default async function About({ params: { lang } }: { params: { lang: Loca
         </section>
 
         <section id="bridge_people">
-          <Heading level={1} color="purple" className="mb-16">
+          <Heading level={1} color="purple" className="mb-16 text-center">
             {dictionary.bridge_people}
           </Heading>
 
