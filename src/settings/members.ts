@@ -4,7 +4,7 @@ import picMarta from "@/assets/marta_falguera.jpg";
 import picLua from "@/assets/Lua_santamaria.jpg";
 import picSara from "@/assets/sara_demiguel.jpg";
 import picMiguel from "@/assets/miguel_sanchez.jpg";
-import picAngela  from "@/assets/anglea_suarez.jpg"
+import picAngela  from "@/assets/angela_suarez.jpg"
 import type { Dictionary } from "@/i18n/dictionaries/es";
 
 
