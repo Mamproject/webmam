@@ -1,5 +1,4 @@
 import type { MemberCardProps } from "@/components/MemberCard";
-import picPlaceholder from "@/assets/pic_placeholder.png";
 import picMarta from "@/assets/marta_falguera.jpg";
 import picLua from "@/assets/Lua_santamaria.jpg";
 import picSara from "@/assets/sara_demiguel.jpg";
