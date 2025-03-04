@@ -24,12 +24,35 @@ export const useSendForm = (formKey: TFormKeys, toastData: ToastData, dictionary
   const toastCookieError = useCookiesToast(dictionary);
 
   const onSubmit: SubmitHandler<TFormData> = async (data) => {
+    console.log("Formulario enviado:", data);
+
     toast(undefined);
-    if (!isGrecaptchaLoaded()) return toastCookieError("google");
-    const token = await generateGrecaptchaToken(grecaptchaActions.contactForm);
-    startTransition(() => {
-      submitFormAction({ ...data, token, formKey }).then((status) => toast(toastData[status.status]));
-    });
+
+    if (!isGrecaptchaLoaded()) {
+      console.error("Google reCAPTCHA no está cargado.");
+      return toastCookieError("google");
+    }
+
+    try {
+      console.log("Generando token de reCAPTCHA...");
+      const token = await generateGrecaptchaToken(grecaptchaActions.contactForm);
+      console.log("Token generado:", token);
+
+      startTransition(() => {
+        submitFormAction({ ...data, token, formKey })
+          .then((status) => {
+            console.log("Respuesta del backend:", status);
+            toast(toastData[status.status]);
+          })
+          .catch((error) => {
+            console.error("Error en la respuesta del backend:", error);
+            toast(toastData.error);
+          });
+      });
+    } catch (error) {
+      console.error("Error generando token de reCAPTCHA:", error);
+      toast(toastData.error);
+    }
   };
 
   return { loading, onSubmit };
