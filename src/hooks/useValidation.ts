@@ -1,22 +1,21 @@
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import { rEmail } from "@/utils/regex";
-import type { RegisterOptions } from "react-hook-form";
 
 export const useValidation = (dictionary: Dictionary) => {
-  const max = (max: number): RegisterOptions["maxLength"] => ({
+  const max = (max: number) => ({
     value: max,
     message: maxLengthError(dictionary, max),
   });
-  const required = (): RegisterOptions["required"] => ({
+  const required = () => ({
     value: true,
     message: dictionary.required_field,
   });
-  const email = (): RegisterOptions => ({
+  const email = () => ({
     required: required(),
     pattern: { value: rEmail, message: dictionary.invalid_email },
     maxLength: { value: 255, message: maxLengthError(dictionary, 255) },
   });
-  const standardText = (): RegisterOptions => ({
+  const standardText = () => ({
     required: required(),
     maxLength: max(255),
   });

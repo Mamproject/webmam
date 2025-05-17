@@ -5,7 +5,10 @@ import type { MDXProps } from "mdx/types";
 import dynamic from "next/dynamic";
 import type { ComponentType } from "react";
 
-export default async function Page({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function Page(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const MdxContent = (
     {
       es: dynamic(() => import("../../../i18n/mdx/payments-es.mdx"), {

@@ -16,7 +16,10 @@ const bridges = {
   es: bridgesEs,
 };
 
-export default async function PurpleBricks({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function PurpleBricks(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
 
   return (
@@ -44,7 +47,7 @@ export default async function PurpleBricks({ params: { lang } }: { params: { lan
           />
         </div>
 
-        <Heading level={1} color="purple" className="!mb-0 text-center">
+        <Heading level={1} color="purple" className="mb-0! text-center">
           {dictionary.what_we_do}
         </Heading>
       </Container>
@@ -52,7 +55,7 @@ export default async function PurpleBricks({ params: { lang } }: { params: { lan
       <Image alt={dictionary.what_we_do} src={bridges[lang]} className="-my-4 mx-auto" />
 
       <div className="my-16 bg-purple p-8">
-        <Heading level={2} color="white" className="!m-0 text-center uppercase">
+        <Heading level={2} color="white" className="m-0! text-center uppercase">
           {dictionary.brick_value}
         </Heading>
       </div>

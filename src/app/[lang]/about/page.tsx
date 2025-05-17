@@ -11,7 +11,10 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/i18n-config";
 import { members } from "@/settings/members";
 
-export default async function About({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function About(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
 
   return (

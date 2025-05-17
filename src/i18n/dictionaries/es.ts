@@ -193,10 +193,9 @@ En breve recibirás un correo con los detalles de tu aportación.`,
   construyendo_puentes: lk`Construyendo puentes`,
   canal_denuncias: lk`Canal de denucias`,
   text_canal_denuncias: lk`En caso de identificar conductas irregulares en nuestra organización, no dudes en contactar con nosotros. Puedes mandar tu denuncia a mamprojectukunda@gmail.com`,
-  en_construccion: lk`Estamos trabajando en subir un documento explicativo.`
+  en_construccion: lk`Estamos trabajando en subir un documento explicativo.`,
 } satisfies Record<string, LocalizedString>;
 
 export type Dictionary = typeof es;
 
 export default es as Dictionary;
- 

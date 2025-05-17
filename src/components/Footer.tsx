@@ -21,7 +21,7 @@ const Footer: FC<FooterProps> = ({ dictionary }) => {
   return (
     <footer className={`bg-purple ${antonio.className}`}>
       <Container horizontal className="flex flex-col items-center gap-4 py-8">
-        <Heading level={2} color="white" className="!m-0">
+        <Heading level={2} color="white" className="m-0!">
           {dictionary.info}
         </Heading>
 

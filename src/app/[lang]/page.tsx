@@ -14,12 +14,15 @@ import Link from "next/link";
 import specialNeedsChildrenPic from "../../assets/special_needs_children.png";
 import type { Locale } from "../../i18n/i18n-config";
 
-export default async function Home({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
 
   return (
     <main>
-      <article className="relative mx-auto mb-10 w-full max-w-[1920px] md:h-[40rem] lg:h-[32rem]">
+      <article className="relative mx-auto mb-10 w-full max-w-[1920px] md:h-160 lg:h-128">
         <div className="relative h-[40vh] w-full md:h-full">
           <Image
             src={section1Pic}
@@ -33,13 +36,13 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
         </div>
 
         <div className="bottom-0 left-0 w-full md:absolute">
-          <div className="2xl:mx-auto 2xl:max-w-screen-2xl">
-            <div className="w-full bg-purple/90 p-4 md:w-[40rem]">
-              <Heading level={2} color="white" className="!mb-4">
+          <div className="2xl:mx-auto 2xl:max-w-(--breakpoint-2xl)">
+            <div className="w-full bg-purple/90 p-4 md:w-160">
+              <Heading level={2} color="white" className="mb-4!">
                 MAM PROJECT
               </Heading>
 
-              <p className="font-montserrat mb-4 text-base text-white">{dictionary.mam_description}</p>
+              <p className="mb-4 font-montserrat text-base text-white">{dictionary.mam_description}</p>
 
               <div className="flex gap-4">
                 <Button className="w-fit" color="white" asChild>
@@ -103,7 +106,7 @@ export default async function Home({ params: { lang } }: { params: { lang: Local
 
       <article className="mb-10 bg-purple">
         <div className="mx-auto max-w-lg px-8 py-10">
-          <Heading level={2} color="white" className="!m-0 text-center uppercase">
+          <Heading level={2} color="white" className="m-0! text-center uppercase">
             {dictionary.build_a_home}
           </Heading>
         </div>

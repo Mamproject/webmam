@@ -12,7 +12,7 @@ DialogOverlay.displayName = "DialogOverlay";
 export const DialogContent = forwardRef<HTMLDivElement, Dialog.DialogContentProps>(({ className, ...props }, ref) => (
   <Dialog.Content
     className={cn(
-      "relative h-full w-full overflow-y-auto rounded border border-gray-200 bg-white shadow-lg sm:h-4/5 sm:max-w-lg",
+      "relative h-full w-full overflow-y-auto rounded-sm border border-gray-200 bg-white shadow-lg focus:outline-none sm:h-4/5 sm:max-w-lg",
       className,
     )}
     {...props}
@@ -29,7 +29,7 @@ interface DialogPortalProps {
 export const DialogPortal = forwardRef<HTMLDivElement, DialogPortalProps>(
   ({ portal, div: { className, ...props } = {}, children }, ref) => (
     <Dialog.Portal {...portal}>
-      <div className={cn("fixed inset-0 z-[65] grid place-items-center", className)} {...props} ref={ref}>
+      <div className={cn("fixed inset-0 z-65 grid place-items-center", className)} {...props} ref={ref}>
         {children}
       </div>
     </Dialog.Portal>
@@ -40,13 +40,13 @@ DialogPortal.displayName = "DialogPortal";
 export const DialogClose = forwardRef<HTMLButtonElement, Dialog.DialogCloseProps>(({ className, ...props }, ref) => (
   <Dialog.Close
     className={cn(
-      "fixed left-[calc(100%_-_3rem)] top-4 w-fit cursor-pointer rounded-full sm:absolute sm:right-4",
+      "fixed top-4 left-[calc(100%-3rem)] w-fit cursor-pointer rounded-full sm:absolute sm:right-4",
       className,
     )}
     {...props}
     ref={ref}
   >
-    <XMarkIcon className="h-8 w-8 text-purple" />
+    <XMarkIcon className="text-purple h-8 w-8" />
   </Dialog.Close>
 ));
 DialogClose.displayName = "DialogClose";

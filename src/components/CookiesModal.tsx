@@ -62,7 +62,7 @@ const CookiesModal: FC<CookiesModalProps> = ({
           hideCloseButton: true,
         });
         onSavedPreferences();
-      } catch (error) {
+      } catch {
         toast({
           status: "error",
           title: dictionary.form_error_title,
@@ -81,7 +81,8 @@ const CookiesModal: FC<CookiesModalProps> = ({
         <DialogContent>
           <DialogClose aria-label={dictionary.close} />
 
-          <MdxStyler className="overflow-y-auto px-4 py-4 text-sm prose-headings:mt-4 md:px-8 md:py-8">
+          <Dialog.Title className="sr-only">{dictionary.cookies_policy}</Dialog.Title>
+          <MdxStyler className="prose-headings:mt-4 overflow-y-auto px-4 py-4 text-sm md:px-8 md:py-8">
             <Dialog.Title asChild>
               <Heading level={2} color="purple" className="mt-0 uppercase">
                 {dictionary.cookies_policy}
@@ -133,7 +134,7 @@ const CookiesModal: FC<CookiesModalProps> = ({
               }
               components={{
                 h2: ({ children }) => (
-                  <Heading level={3} color="purple" className="!mt-8">
+                  <Heading level={3} color="purple" className="mt-8!">
                     {children}
                   </Heading>
                 ),

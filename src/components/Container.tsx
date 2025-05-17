@@ -1,4 +1,4 @@
-import type { FC, PropsWithChildren } from "react";
+import type { FC, PropsWithChildren, JSX } from "react";
 
 interface ContainerProps {
   id?: string;
@@ -8,7 +8,7 @@ interface ContainerProps {
 }
 
 const Container: FC<PropsWithChildren<ContainerProps>> = ({ horizontal, className, children, element = "div", id }) => {
-  const classes = [horizontal && "mx-4 md:mx-10 lg:mx-20 2xl:max-w-screen-xl 2xl:mx-auto", className]
+  const classes = [horizontal && "mx-4 md:mx-10 lg:mx-20 2xl:max-w-(--breakpoint-xl) 2xl:mx-auto", className]
     .filter(Boolean)
     .join(" ");
   const Tag = element;

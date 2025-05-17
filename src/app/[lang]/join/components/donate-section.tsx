@@ -39,7 +39,7 @@ const DonateSection: FC<DonateSectionProps> = ({ dictionary, locale, initialView
 
   return (
     <article className="flex flex-col items-center gap-6 md:flex-row">
-      <div className="relative h-[12rem] w-full md:h-[20rem] md:flex-1">
+      <div className="relative h-48 w-full md:h-80 md:flex-1">
         <Image
           src={childrenAroundCakeImg}
           alt={dictionary.children_around_cake_alt}

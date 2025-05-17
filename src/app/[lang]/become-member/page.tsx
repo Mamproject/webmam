@@ -6,7 +6,10 @@ import type { Locale } from "@/i18n/i18n-config";
 import Image from "next/image";
 import SubscribeForm from "./components/subscribe-form";
 
-export default async function KeepConnected({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function KeepConnected(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
 
   return (
@@ -20,7 +23,7 @@ export default async function KeepConnected({ params: { lang } }: { params: { la
 
         <div
           className="flex flex-col gap-8 py-4 md:flex-row-reverse md:items-center 2xl:mx-auto
-          2xl:max-w-screen-xl 2xl:gap-8"
+          2xl:max-w-(--breakpoint-xl) 2xl:gap-8"
         >
           <div className="md:w-1/2">
             <Image

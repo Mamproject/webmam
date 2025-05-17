@@ -18,7 +18,7 @@ export async function submitFormAction(formData: TFormData): Promise<ContactForm
     await validateCaptcha(body.token, grecaptchaActions.contactForm);
     await sendEmail(body as TSentForm & TForm[TFormKeys]);
     return { status: "success" };
-  } catch (error) {
+  } catch {
     return { status: "error" };
   }
 }

@@ -26,7 +26,7 @@ export async function sendEmail(data: TSentForm & TForm[TFormKeys]) {
         },
         Body: {
           Html: {
-            Data: getEmailHtml(data, subject),
+            Data: await getEmailHtml(data, subject),
             Charset,
           },
         },

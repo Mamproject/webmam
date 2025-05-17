@@ -1,11 +1,11 @@
 import "server-only";
 
 import { cookies } from "next/headers";
-import type { AppCookies} from "./settings";
+import type { AppCookies } from "./settings";
 import { appCookies } from "./settings";
 
-export const getAppCookies = () => {
-  const cookiesStore = cookies();
+export const getAppCookies = async () => {
+  const cookiesStore = await cookies();
   const cookieIsTrue = (cookie: string) => cookiesStore.get(cookie)?.value === "1";
 
   return {

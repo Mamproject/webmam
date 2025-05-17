@@ -54,7 +54,7 @@ export async function checkoutSessionAction(formData: TCheckoutFormWithMeta): Pr
       status: "success",
       sessionId: session.id,
     };
-  } catch (error) {
+  } catch {
     return { status: "error" };
   }
 }

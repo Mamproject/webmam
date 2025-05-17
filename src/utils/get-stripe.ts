@@ -13,7 +13,7 @@ const getStripe = async () => {
       // dynamic import to avoid preloading Stripe's JS
       const { loadStripe } = await import("@stripe/stripe-js");
       stripePromise = loadStripe(process.env.NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY!);
-    } catch (error) {
+    } catch {
       return null;
     }
   }

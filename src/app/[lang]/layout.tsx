@@ -22,14 +22,14 @@ export async function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: "Mam Project",
-  robots: {
-    index: false, // TODO: remove
-  },
 };
 
-export default async function Root({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
+export default async function Root(props: { children: React.ReactNode; params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { children } = props;
+
   const dictionary = await getDictionary(params.lang);
-  const cookies = getAppCookies();
+  const cookies = await getAppCookies();
 
   return (
     <html lang={params.lang}>
@@ -48,8 +48,8 @@ export default async function Root({ children, params }: { children: React.React
             labels={{ close: dictionary.close, support: dictionary.support }}
             variant={ColorVariant.Purple}
           />
-          <div className="relative flex flex-grow flex-col overflow-scroll bg-white">
-            <div className="flex-grow">{children}</div>
+          <div className="relative flex grow flex-col overflow-scroll bg-white">
+            <div className="grow">{children}</div>
             <Footer dictionary={dictionary} />
           </div>
           <CookiesManager dictionary={dictionary} cookies={cookies} lang={params.lang} />

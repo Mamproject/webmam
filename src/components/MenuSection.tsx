@@ -27,10 +27,10 @@ interface MenuSectionButtonProps extends MenuSectionBaseProps {
 
 const MenuSectionBase: FC<MenuSectionBaseProps> = ({ title }) => (
   <span className="flex items-center gap-3">
-    <span className="w-8 flex-shrink-0 md:w-10">
+    <span className="w-8 shrink-0 md:w-10">
       <Image src={brick} alt="MAM Logo" className="pt-1" />
     </span>
-    <span className="flex-grow text-left text-2xl leading-normal text-purple">{title}</span>
+    <span className="grow text-left text-2xl leading-normal text-purple">{title}</span>
   </span>
 );
 
@@ -54,7 +54,7 @@ const MenuSectionWrapper: FC<MenuSectionWrapperProps> = ({ title, children, onMo
   <Accordion.Item value={title} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
     <Accordion.Trigger className="group flex w-full items-center gap-3" onClick={onClick}>
       <MenuSectionBase title={title} />
-      <ChevronRightIcon className="h-5 w-5 flex-shrink-0 text-purple transition-all group-data-[state=open]:rotate-90" />
+      <ChevronRightIcon className="h-5 w-5 shrink-0 text-purple transition-all group-data-[state=open]:rotate-90" />
     </Accordion.Trigger>
     <Accordion.Content className="overflow-hidden py-1 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
       <div className="ml-14 mt-1 flex flex-col md:ml-16">{children}</div>

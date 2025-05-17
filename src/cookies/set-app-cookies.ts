@@ -1,13 +1,14 @@
 import "server-only";
 
 import { cookies } from "next/headers";
-import type { AppCookies, AppCookiesKeys} from "./settings";
+import type { AppCookies, AppCookiesKeys } from "./settings";
 import { appCookies } from "./settings";
 
-export const setAppCookies = (cookiesData: AppCookies) => {
-  const cookiesStore = cookies();
+export const setAppCookies = async (cookiesData: AppCookies) => {
+  const cookiesStore = await cookies();
 
   Object.entries(appCookies).forEach(([key, { name, options }]) => {
-    cookiesData[key as AppCookiesKeys] ? cookiesStore.set(name, "1", options) : cookiesStore.delete(name);
+    if (cookiesData[key as AppCookiesKeys]) cookiesStore.set(name, "1", options);
+    else cookiesStore.delete(name);
   });
 };

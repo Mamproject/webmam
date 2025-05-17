@@ -43,13 +43,13 @@ const Toast: FC<ToastProps> = ({
       open={open}
       duration={duration || 10000}
       onOpenChange={onOpenChange}
-      className="relative flex items-center gap-x-4 rounded-md border border-purple bg-gray-50 p-4 shadow-lg data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-[var(--radix-toast-swipe-move-x)] data-[state=closed]:animate-hide data-[state=open]:animate-slideIn data-[swipe=end]:animate-swipeOut data-[swipe=cancel]:transition-[transform_200ms_ease-out]"
+      className="relative flex items-center gap-x-4 rounded-md border border-purple bg-gray-50 p-4 shadow-lg data-[swipe=cancel]:translate-x-0 data-[swipe=move]:translate-x-(--radix-toast-swipe-move-x) data-[state=closed]:animate-hide data-[state=open]:animate-slide-in data-[swipe=end]:animate-swipe-out data-[swipe=cancel]:transition-[transform_200ms_ease-out]"
     >
       {!hideCloseButton && <ToastClose />}
 
       <div>{Icon}</div>
 
-      <div className="flex flex-grow flex-col gap-1">
+      <div className="flex grow flex-col gap-1">
         <ToastPrimitive.Title className="text-base font-medium text-black">{title}</ToastPrimitive.Title>
         <div className="flex items-center gap-4">
           <ToastPrimitive.Description className="text-sm text-gray-600">{description}</ToastPrimitive.Description>
@@ -57,7 +57,7 @@ const Toast: FC<ToastProps> = ({
             <ToastPrimitive.Action asChild altText={action.altText}>
               <button
                 onClick={action.onClick}
-                className="inline-flex h-fit w-fit items-center justify-center rounded bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 shadow-[inset_0_0_0_1px] focus:shadow-[0_0_0_2px]"
+                className="inline-flex h-fit w-fit items-center justify-center rounded-sm bg-gray-100 px-3 py-1 text-xs font-medium text-gray-800 shadow-[inset_0_0_0_1px] focus:shadow-[0_0_0_2px]"
               >
                 {action.label}
               </button>
@@ -82,7 +82,7 @@ export const ToastProvider: FC<PropsWithChildren> = ({ children }) => {
       <ToastPrimitive.Provider>
         {children}
         {toast && <Toast {...toast} open={!!toast} onOpenChange={(open) => !open && setToast(undefined)} />}
-        <ToastPrimitive.Viewport className="fixed bottom-0 right-0 z-[70] m-0 flex w-[390px] max-w-[100vw] list-none flex-col gap-4 p-[var(--viewport-padding)] outline-none [--viewport-padding:_1.5rem]" />
+        <ToastPrimitive.Viewport className="fixed bottom-0 right-0 z-70 m-0 flex w-[390px] max-w-screen list-none flex-col gap-4 p-(--viewport-padding) outline-hidden [--viewport-padding:1.5rem]" />
       </ToastPrimitive.Provider>
     </ToastContext.Provider>
   );

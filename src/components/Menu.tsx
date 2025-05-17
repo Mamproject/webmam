@@ -88,7 +88,7 @@ const Menu: FC<MenuProps> = ({ open, onClose, closeLabel, dictionary }) => {
           </div>
         </Dialog.Content>
 
-        <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-sm" />
+        <Dialog.Overlay className="fixed inset-0 z-10 bg-black/50 backdrop-blur-xs" />
       </Dialog.Portal>
     </Dialog.Root>
   );
