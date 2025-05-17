@@ -6,7 +6,10 @@ import type { Locale } from "@/i18n/i18n-config";
 import Image from "next/image";
 import SubscribeForm from "./components/subscribe-form";
 
-export default async function KeepConnected({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function KeepConnected(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
 
   return (

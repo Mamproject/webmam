@@ -24,9 +24,12 @@ export const metadata: Metadata = {
   title: "Mam Project",
 };
 
-export default async function Root({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
+export default async function Root(props: { children: React.ReactNode; params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { children } = props;
+
   const dictionary = await getDictionary(params.lang);
-  const cookies = getAppCookies();
+  const cookies = await getAppCookies();
 
   return (
     <html lang={params.lang}>

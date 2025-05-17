@@ -3,69 +3,61 @@ import Heading from "@/components/Heading";
 import { getDictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/i18n-config";
 
-export default async function Transparency({
-  params: { lang },
-}: {
-  params: { lang: Locale };
-}) {
+export default async function Transparency(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
 
   return (
     <main className="py-8">
-      <Container horizontal> 
+      <Container horizontal>
         <Heading level={1} color="purple" className="text-center">
           {dictionary.transparency}
         </Heading>
-        <p className="text-lg text-gray-700 mt-4">
-          {dictionary.transparency_explain}
-        </p>
+        <p className="mt-4 text-lg text-gray-700">{dictionary.transparency_explain}</p>
       </Container>
 
       <Container id="organigrama" horizontal className="mt-8">
         <section>
-          <Heading level={2} color="purple" className="text-center mb-4">
+          <Heading level={2} color="purple" className="mb-4 text-center">
             {dictionary.organigrama}
           </Heading>
-          <p className="text-lg text-gray-700 mb-6">
-            {dictionary. en_construccion}
-          </p>
+          <p className="mb-6 text-lg text-gray-700">{dictionary.en_construccion}</p>
         </section>
       </Container>
 
       <Container id="donde_va_tu_dinero" horizontal className="mt-8">
         <section>
-          <Heading level={2} color="purple" className="text-center mb-4">
+          <Heading level={2} color="purple" className="mb-4 text-center">
             {dictionary.donde_va_tu_dinero}
           </Heading>
-          <p className="text-lg text-gray-700 mb-6">
-            {dictionary. en_construccion}
-          </p>
+          <p className="mb-6 text-lg text-gray-700">{dictionary.en_construccion}</p>
         </section>
       </Container>
 
       <Container id="construyendo_puentes" horizontal className="mt-8">
         <section>
-          <Heading level={2} color="purple" className="text-center mb-4">
+          <Heading level={2} color="purple" className="mb-4 text-center">
             {dictionary.construyendo_puentes}
-           </Heading>
-          <p className="text-lg text-gray-700 mb-6">
-            {dictionary. en_construccion}
-          </p>
-          {/* Aquí puedes agregar más detalles sobre los proyectos financiados */}
+          </Heading>
+          <p className="mb-6 text-lg text-gray-700">{dictionary.en_construccion}</p>
         </section>
       </Container>
 
-     <Container id="canal_denuncias" horizontal className="mt-8">
+      <Container id="canal_denuncias" horizontal className="mt-8">
         <section>
-          <Heading level={2} color="purple" className="text-center mb-4">
+          <Heading level={2} color="purple" className="mb-4 text-center">
             {dictionary.canal_denuncias}
           </Heading>
-        <a href="mailto: mamprojectukunda@gmail.com"  
-        className="inline-block bg-purple text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple transition" >
-        {dictionary.text_canal_denuncias}
-       </a>
-      </section>
-</Container>
+          <a
+            href="mailto: mamprojectukunda@gmail.com"
+            className="inline-block rounded-lg bg-purple px-6 py-3 text-lg font-semibold text-white transition hover:bg-purple"
+          >
+            {dictionary.text_canal_denuncias}
+          </a>
+        </section>
+      </Container>
     </main>
   );
 }

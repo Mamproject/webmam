@@ -16,7 +16,10 @@ const bridges = {
   es: bridgesEs,
 };
 
-export default async function PurpleBricks({ params: { lang } }: { params: { lang: Locale } }) {
+export default async function PurpleBricks(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
 
   return (

@@ -1,4 +1,4 @@
-import type { FC, PropsWithChildren } from "react";
+import type { FC, PropsWithChildren, JSX } from "react";
 
 interface ContainerProps {
   id?: string;

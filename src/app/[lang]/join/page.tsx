@@ -6,20 +6,12 @@ import { getDictionary } from "@/i18n/get-dictionary";
 import type { Locale } from "@/i18n/i18n-config";
 import Image from "next/image";
 import CreateBrickSections from "./components/create-brick-sections";
-// Importación de JoinSearchParams y parseJoinSearchParams eliminada, ya que no se usan
-// import type { JoinSearchParams } from "./utils/parse-join-page-params";
-// import { parseJoinSearchParams } from "./utils/parse-join-page-params";
 
-export default async function Join({
-  params: { lang },
-  // searchParams eliminada, ya que no se usa
-}: {
-  params: { lang: Locale };
-  // searchParams: JoinSearchParams; // No se usa, por lo que se ha eliminado
-}) {
+export default async function Join(props: { params: Promise<{ lang: Locale }> }) {
+  const params = await props.params;
+  const { lang } = params;
+
   const dictionary = await getDictionary(lang);
-  // Si planeas usar 'searchParams' más tarde, descomenta y utiliza la función 'parseJoinSearchParams' de acuerdo a tus necesidades
-  // const parsedSearchParams = parseJoinSearchParams(searchParams);
 
   return (
     <main className="py-8">
@@ -30,18 +22,17 @@ export default async function Join({
       </Container>
       <Container horizontal className="mb-8 md:mb-16">
         {/* Sección para redirigir a GoFundMe */}
-        <div className="flex flex-col items-center bg-white p-6 rounded-lg shadow-lg text-center">
-          <h2 className="text-2xl font-bold text-purple mb-4">
-            {dictionary.donation_title || "Haz tu Donación"}
-          </h2>
-          <p className="text-gray-700 mb-6">
-            {dictionary.donation_description || "Gracias por apoyar nuestra causa. Haz clic en el botón para ir a nuestra página de GoFundMe, donde podrás elegir la cantidad de tu aportación."}
+        <div className="flex flex-col items-center rounded-lg bg-white p-6 text-center shadow-lg">
+          <h2 className="mb-4 text-2xl font-bold text-purple">{dictionary.donation_title || "Haz tu Donación"}</h2>
+          <p className="mb-6 text-gray-700">
+            {dictionary.donation_description ||
+              "Gracias por apoyar nuestra causa. Haz clic en el botón para ir a nuestra página de GoFundMe, donde podrás elegir la cantidad de tu aportación."}
           </p>
           <a
             href="https://gofund.me/8bdad21b"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-purple text-white px-6 py-3 rounded-lg text-lg font-semibold hover:bg-purple-700 transition"
+            className="inline-block rounded-lg bg-purple px-6 py-3 text-lg font-semibold text-white transition hover:bg-purple-700"
           >
             {dictionary.donation_button || "Ir a GoFundMe"}
           </a>
