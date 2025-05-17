@@ -22,9 +22,6 @@ export async function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: "Mam Project",
-  robots: {
-    index: false, // TODO: remove
-  },
 };
 
 export default async function Root({ children, params }: { children: React.ReactNode; params: { lang: Locale } }) {
