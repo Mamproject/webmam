@@ -30,13 +30,13 @@ const MenuSectionBase: FC<MenuSectionBaseProps> = ({ title }) => (
     <span className="w-8 shrink-0 md:w-10">
       <Image src={brick} alt="MAM Logo" className="pt-1" />
     </span>
-    <span className="grow text-left text-2xl leading-normal text-purple">{title}</span>
+    <span className="text-purple grow text-left text-2xl leading-normal">{title}</span>
   </span>
 );
 
 const MenuSectionLink: FC<MenuSectionLinkProps> = ({ href, title }) => (
   <Dialog.Close asChild>
-    <Link href={href}>
+    <Link href={href} className="focus:outline-none">
       <MenuSectionBase title={title} />
     </Link>
   </Dialog.Close>
@@ -44,7 +44,7 @@ const MenuSectionLink: FC<MenuSectionLinkProps> = ({ href, title }) => (
 
 const MenuSectionButton: FC<MenuSectionButtonProps> = ({ onClick, title }) => (
   <Dialog.Close asChild>
-    <button onClick={onClick}>
+    <button className="focus:outline-none" onClick={onClick}>
       <MenuSectionBase title={title} />
     </button>
   </Dialog.Close>
@@ -52,19 +52,22 @@ const MenuSectionButton: FC<MenuSectionButtonProps> = ({ onClick, title }) => (
 
 const MenuSectionWrapper: FC<MenuSectionWrapperProps> = ({ title, children, onMouseEnter, onMouseLeave, onClick }) => (
   <Accordion.Item value={title} onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
-    <Accordion.Trigger className="group flex w-full items-center gap-3" onClick={onClick}>
+    <Accordion.Trigger
+      className="group flex w-full cursor-pointer items-center gap-3 focus:outline-none"
+      onClick={onClick}
+    >
       <MenuSectionBase title={title} />
-      <ChevronRightIcon className="h-5 w-5 shrink-0 text-purple transition-all group-data-[state=open]:rotate-90" />
+      <ChevronRightIcon className="text-purple h-5 w-5 shrink-0 transition-all group-data-[state=open]:rotate-90" />
     </Accordion.Trigger>
-    <Accordion.Content className="overflow-hidden py-1 data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-      <div className="ml-14 mt-1 flex flex-col md:ml-16">{children}</div>
+    <Accordion.Content className="data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down overflow-hidden py-1">
+      <div className="mt-1 ml-14 flex flex-col md:ml-16">{children}</div>
     </Accordion.Content>
   </Accordion.Item>
 );
 
 const MenuSubsectionButton: FC<MenuSectionButtonProps> = ({ onClick, title }) => (
   <Dialog.Close asChild>
-    <button onClick={onClick} className="w-fit text-purple md:text-lg">
+    <button onClick={onClick} className="text-purple w-fit focus:outline-none md:text-lg">
       {title}
     </button>
   </Dialog.Close>
@@ -72,7 +75,7 @@ const MenuSubsectionButton: FC<MenuSectionButtonProps> = ({ onClick, title }) =>
 
 const MenuSubsectionLink: FC<MenuSectionLinkProps> = ({ href, title }) => (
   <Dialog.Close asChild>
-    <Link href={href} className="w-fit text-purple md:text-lg">
+    <Link href={href} className="text-purple w-fit md:text-lg">
       {title}
     </Link>
   </Dialog.Close>
