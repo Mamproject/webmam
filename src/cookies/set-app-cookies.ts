@@ -8,6 +8,7 @@ export const setAppCookies = async (cookiesData: AppCookies) => {
   const cookiesStore = await cookies();
 
   Object.entries(appCookies).forEach(([key, { name, options }]) => {
-    cookiesData[key as AppCookiesKeys] ? cookiesStore.set(name, "1", options) : cookiesStore.delete(name);
+    if (cookiesData[key as AppCookiesKeys]) cookiesStore.set(name, "1", options);
+    else cookiesStore.delete(name);
   });
 };

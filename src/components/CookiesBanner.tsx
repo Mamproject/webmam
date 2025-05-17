@@ -22,7 +22,7 @@ const CookiesBanner: FC<CookiesBannerProps> = ({ dictionary, open, onOpenChange,
     try {
       await action();
       onOpenChange(false);
-    } catch (error) {
+    } catch {
       toast({
         status: "error",
         title: dictionary.cookies_error_title,
@@ -39,7 +39,7 @@ const CookiesBanner: FC<CookiesBannerProps> = ({ dictionary, open, onOpenChange,
     <Dialog.Root open={open} onOpenChange={onOpenChange} modal={false}>
       <Dialog.Portal>
         <Dialog.Content
-          className="z-60 bg-linear-to-t from-purple data-[state=closed]:animate-slide-out-bottom data-[state=open]:animate-slide-in-bottom fixed inset-x-0 bottom-0 border-t border-t-purple-200 to-purple-400"
+          className="from-purple data-[state=closed]:animate-slide-out-bottom data-[state=open]:animate-slide-in-bottom fixed inset-x-0 bottom-0 z-60 border-t border-t-purple-200 bg-linear-to-t to-purple-400"
           onPointerDownOutside={(e) => e.preventDefault()}
           onInteractOutside={(e) => e.preventDefault()}
           onEscapeKeyDown={(e) => e.preventDefault()}

@@ -62,7 +62,7 @@ const CookiesModal: FC<CookiesModalProps> = ({
           hideCloseButton: true,
         });
         onSavedPreferences();
-      } catch (error) {
+      } catch {
         toast({
           status: "error",
           title: dictionary.form_error_title,

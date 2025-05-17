@@ -62,7 +62,7 @@ const DonateForm: FC<DonateFormProps> = ({
       const stripe = await getStripe();
       if (!stripe) return cookiesErrorToast("stripe");
       stripe.redirectToCheckout({ sessionId: res.sessionId });
-    } catch (error) {
+    } catch {
       toast({
         status: "error",
         title: dictionary.form_error_title,
