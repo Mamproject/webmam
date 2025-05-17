@@ -16,7 +16,7 @@ const SmallArticle: FC<SmallArticleProps> = ({ title, description, pictureSrc, p
   <article className="flex flex-1 flex-col gap-6">
     <span className="text-xl uppercase md:text-4xl">{title}</span>
 
-    <div className="relative h-[20rem] w-full">
+    <div className="relative h-80 w-full">
       <Image
         src={pictureSrc}
         alt={pictureAlt}
@@ -61,7 +61,7 @@ const BigArticle: FC<SmallArticleProps & { imageAlign: "right" | "left" }> = ({
             )}
           </div>
 
-          <div className={`relative h-[26rem] w-full flex-1 xl:h-[20rem] ${imageAlignClass}`}>
+          <div className={`relative h-104 w-full flex-1 xl:h-80 ${imageAlignClass}`}>
             <Image
               src={pictureSrc}
               alt={pictureAlt}

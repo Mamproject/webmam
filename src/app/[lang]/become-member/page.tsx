@@ -23,7 +23,7 @@ export default async function KeepConnected(props: { params: Promise<{ lang: Loc
 
         <div
           className="flex flex-col gap-8 py-4 md:flex-row-reverse md:items-center 2xl:mx-auto
-          2xl:max-w-screen-xl 2xl:gap-8"
+          2xl:max-w-(--breakpoint-xl) 2xl:gap-8"
         >
           <div className="md:w-1/2">
             <Image

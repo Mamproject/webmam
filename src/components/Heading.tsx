@@ -7,7 +7,7 @@ interface HeadingProps {
   level: 1 | 2 | 3;
 }
 
-const Heading: FC<PropsWithChildren<HeadingProps>> = ({ color = "black", className, children, level }) => {
+const Heading: FC<PropsWithChildren<HeadingProps>> = ({ color = "black", className, children, level, ...props }) => {
   const settings = {
     1: {
       className: "text-3xl md:text-4xl mb-8 uppercase",
@@ -25,7 +25,11 @@ const Heading: FC<PropsWithChildren<HeadingProps>> = ({ color = "black", classNa
   const Tag = settings[level].tag as ElementType;
   const levelClass = settings[level].className;
 
-  return <Tag className={`${antonio.className} text-${color} ${levelClass} ${className}`}>{children}</Tag>;
+  return (
+    <Tag className={`${antonio.className} text-${color} ${levelClass} ${className}`} {...props}>
+      {children}
+    </Tag>
+  );
 };
 
 export default Heading;

@@ -32,7 +32,7 @@ const Navbar: FC<NavbarProps> = ({ variant, dictionary, labels }) => {
     <>
       <Menu open={menuIsOpen} onClose={handleHamburgerClick} dictionary={dictionary} closeLabel={labels.close} />
       <nav className={cx(styleSettings[variant].background, "relative z-10 shadow-md")}>
-        <Container horizontal className="flex h-16 items-center justify-between md:h-[4.5rem]">
+        <Container horizontal className="flex h-16 items-center justify-between md:h-18">
           <Hamburger variant={contrastVariant} onClick={handleHamburgerClick} />
           <div className="w-32 md:w-40">
             <Link href="/">

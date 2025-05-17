@@ -5,7 +5,7 @@ const MdxStyler: FC<PropsWithChildren<{ className?: string }>> = ({ children, cl
   return (
     <article
       className={cx(
-        "prose-headings:font-antonio prose mx-auto whitespace-normal prose-headings:text-purple prose-a:text-purple prose-a:no-underline hover:prose-a:underline",
+        "prose-headings:font-antonio prose mx-auto whitespace-normal prose-headings:text-purple prose-a:text-purple prose-a:no-underline prose-a:hover:underline",
         className,
       )}
     >

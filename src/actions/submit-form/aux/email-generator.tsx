@@ -16,7 +16,6 @@ import {
   render,
 } from "@react-email/components";
 import type { FC } from "react";
-import config from "../../../../tailwind.config";
 
 interface Section {
   title: string;
@@ -32,10 +31,20 @@ const Email: FC<EmailProps> = ({ subject, sections }) => (
   <Html>
     <Head />
     <Preview>{subject}</Preview>
-    <Tailwind config={config}>
+    <Tailwind
+      config={{
+        theme: {
+          extend: {
+            colors: {
+              "purple-hex": "#d294ff",
+            },
+          },
+        },
+      }}
+    >
       <Body className='bg-white font-[-apple-system,BlinkMacSystemFont,"Segoe_UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica_Neue",sans-serif]'>
-        <Container className="mx-auto max-w-[34rem] pb-8 pt-6">
-          <Heading className="text-2xl text-purple-hex">{subject}</Heading>
+        <Container className="max-w-136 mx-auto pb-8 pt-6">
+          <Heading className="text-purple-hex text-2xl">{subject}</Heading>
           {sections.map(({ title, content }, i) => (
             <Section key={i}>
               <Heading as="h2" className="mb-2 text-base text-gray-700">

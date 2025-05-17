@@ -34,6 +34,7 @@ const TermsModal: FC<TermsModalProps> = ({ dictionary, locale }) => {
         <DialogOverlay />
         <DialogContent className="flex flex-col">
           <DialogClose aria-label={dictionary.close} />
+          <Dialog.DialogTitle className="sr-only">{dictionary.privacy_policy}</Dialog.DialogTitle>
           <MdxStyler className="overflow-y-auto px-4 py-4 text-sm prose-headings:mt-4 md:px-8 md:py-8">
             <MdxContent />
           </MdxStyler>

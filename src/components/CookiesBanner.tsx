@@ -1,6 +1,6 @@
 import type { Dictionary } from "@/i18n/dictionaries/es";
 import * as Dialog from "@radix-ui/react-dialog";
-import type { FC} from "react";
+import type { FC } from "react";
 import { useTransition } from "react";
 import Button from "./Button";
 import { acceptAll, rejectAll } from "@/cookies/cookies-actions";
@@ -39,12 +39,13 @@ const CookiesBanner: FC<CookiesBannerProps> = ({ dictionary, open, onOpenChange,
     <Dialog.Root open={open} onOpenChange={onOpenChange} modal={false}>
       <Dialog.Portal>
         <Dialog.Content
-          className="fixed inset-x-0 bottom-0 z-[60] border-t border-t-purple-200 bg-gradient-to-t from-purple to-purple-400 data-[state=closed]:animate-slide-out-bottom data-[state=open]:animate-slide-in-bottom"
+          className="z-60 bg-linear-to-t from-purple data-[state=closed]:animate-slide-out-bottom data-[state=open]:animate-slide-in-bottom fixed inset-x-0 bottom-0 border-t border-t-purple-200 to-purple-400"
           onPointerDownOutside={(e) => e.preventDefault()}
           onInteractOutside={(e) => e.preventDefault()}
           onEscapeKeyDown={(e) => e.preventDefault()}
         >
           <div className="flex flex-col justify-between gap-3 p-4 lg:flex-row lg:items-center">
+            <Dialog.DialogTitle className="sr-only">{dictionary.cookies_policy}</Dialog.DialogTitle>
             <Dialog.DialogDescription className="text-base font-light text-white lg:max-w-prose">
               {dictionary.cookies_banner_text}
             </Dialog.DialogDescription>

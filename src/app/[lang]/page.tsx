@@ -22,7 +22,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
 
   return (
     <main>
-      <article className="relative mx-auto mb-10 w-full max-w-[1920px] md:h-[40rem] lg:h-[32rem]">
+      <article className="relative mx-auto mb-10 w-full max-w-[1920px] md:h-160 lg:h-128">
         <div className="relative h-[40vh] w-full md:h-full">
           <Image
             src={section1Pic}
@@ -36,9 +36,9 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
         </div>
 
         <div className="bottom-0 left-0 w-full md:absolute">
-          <div className="2xl:mx-auto 2xl:max-w-screen-2xl">
-            <div className="w-full bg-purple/90 p-4 md:w-[40rem]">
-              <Heading level={2} color="white" className="!mb-4">
+          <div className="2xl:mx-auto 2xl:max-w-(--breakpoint-2xl)">
+            <div className="w-full bg-purple/90 p-4 md:w-160">
+              <Heading level={2} color="white" className="mb-4!">
                 MAM PROJECT
               </Heading>
 
@@ -106,7 +106,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
 
       <article className="mb-10 bg-purple">
         <div className="mx-auto max-w-lg px-8 py-10">
-          <Heading level={2} color="white" className="!m-0 text-center uppercase">
+          <Heading level={2} color="white" className="m-0! text-center uppercase">
             {dictionary.build_a_home}
           </Heading>
         </div>

@@ -48,8 +48,8 @@ export default async function Root(props: { children: React.ReactNode; params: P
             labels={{ close: dictionary.close, support: dictionary.support }}
             variant={ColorVariant.Purple}
           />
-          <div className="relative flex flex-grow flex-col overflow-scroll bg-white">
-            <div className="flex-grow">{children}</div>
+          <div className="relative flex grow flex-col overflow-scroll bg-white">
+            <div className="grow">{children}</div>
             <Footer dictionary={dictionary} />
           </div>
           <CookiesManager dictionary={dictionary} cookies={cookies} lang={params.lang} />
