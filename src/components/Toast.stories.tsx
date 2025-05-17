@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/react";
-import type { ToastProps} from "./Toast";
+import type { ToastProps } from "./Toast";
 import Toast, { ToastProvider, useToast } from "./Toast";
 import Button from "./Button";
 import type { FC } from "react";
