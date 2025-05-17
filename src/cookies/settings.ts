@@ -4,7 +4,7 @@ export const C_STRIPE = "m-s";
 
 const cookiesSettings = {
   httpOnly: true,
-  sameSite: "strict",
+  sameSite: "lax",
   path: "/",
   secure: true,
   // one year in seconds
