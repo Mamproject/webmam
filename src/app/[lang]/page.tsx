@@ -37,12 +37,12 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
 
         <div className="bottom-0 left-0 w-full md:absolute">
           <div className="2xl:mx-auto 2xl:max-w-(--breakpoint-2xl)">
-            <div className="w-full bg-purple/90 p-4 md:w-160">
+            <div className="bg-purple/90 w-full p-4 md:w-160">
               <Heading level={2} color="white" className="mb-4!">
                 MAM PROJECT
               </Heading>
 
-              <p className="mb-4 font-montserrat text-base text-white">{dictionary.mam_description}</p>
+              <p className="font-montserrat mb-4 text-base text-white">{dictionary.mam_description}</p>
 
               <div className="flex gap-4">
                 <Button className="w-fit" color="white" asChild>
@@ -50,7 +50,9 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                 </Button>
 
                 <Button className="w-fit" color="white" asChild>
-                  <Link href="/become-member">{dictionary.become_member}</Link>
+                  <a href="https://donate.stripe.com/28oaEGgwK9RMgs8eUV" target="_blank">
+                    {dictionary.become_member}
+                  </a>
                 </Button>
               </div>
             </div>
@@ -104,7 +106,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
         </Container>
       </article>
 
-      <article className="mb-10 bg-purple">
+      <article className="bg-purple mb-10">
         <div className="mx-auto max-w-lg px-8 py-10">
           <Heading level={2} color="white" className="m-0! text-center uppercase">
             {dictionary.build_a_home}
@@ -116,7 +118,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
         <a
           target="_blank"
           href={socialMediaData.instagram.url}
-          className="text-center text-xl text-purple hover:underline"
+          className="text-purple text-center text-xl hover:underline"
         >
           {dictionary.follow_instagram}
           <ArrowTopRightOnSquareIcon className="ml-1 inline h-5 w-5" />
