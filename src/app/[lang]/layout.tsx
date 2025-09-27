@@ -24,18 +24,19 @@ export const metadata: Metadata = {
   title: "Mam Project",
 };
 
-export default async function Root(props: { children: React.ReactNode; params: Promise<{ lang: Locale }> }) {
+export default async function Root(props: LayoutProps<"/[lang]">) {
   const params = await props.params;
   const { children } = props;
 
-  const dictionary = await getDictionary(params.lang);
+  const lang = params.lang as Locale;
+  const dictionary = await getDictionary(lang);
   const cookies = await getAppCookies();
 
   return (
-    <html lang={params.lang}>
+    <html lang={lang}>
       <body
         className={cn(
-          "flex h-svh flex-col whitespace-pre-wrap bg-purple font-light",
+          "bg-purple flex h-svh flex-col font-light whitespace-pre-wrap",
           openSans.className,
           openSans.variable,
           montserrat.variable,
@@ -52,8 +53,8 @@ export default async function Root(props: { children: React.ReactNode; params: P
             <div className="grow">{children}</div>
             <Footer dictionary={dictionary} />
           </div>
-          <CookiesManager dictionary={dictionary} cookies={cookies} lang={params.lang} />
-          <TermsModal dictionary={dictionary} locale={params.lang} />
+          <CookiesManager dictionary={dictionary} cookies={cookies} lang={lang} />
+          <TermsModal dictionary={dictionary} locale={lang} />
         </ToastProvider>
       </body>
 
