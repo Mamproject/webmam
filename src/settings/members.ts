@@ -3,34 +3,33 @@ import picMarta from "@/assets/marta_falguera.jpg";
 import picLua from "@/assets/Lua_santamaria.jpg";
 import picSara from "@/assets/sara_demiguel.jpg";
 import picMiguel from "@/assets/miguel_sanchez.jpg";
-import picAngela  from "@/assets/angela_suarez.jpg"
-import type { Dictionary } from "@/i18n/dictionaries/es";
+import picAngela from "@/assets/angela_suarez.jpg";
+import type { TranslatorFunction } from "@/types/utility-types";
 
-
-export const members = (dictionary: Dictionary): MemberCardProps[] => [
+export const members = (t: TranslatorFunction): MemberCardProps[] => [
   {
     name: "Marta Falguera",
-    title: dictionary.president,
+    title: t("team.president"),
     pictureSrc: picMarta,
   },
   {
     name: "Ángela Suárez",
-    title: dictionary.secretary,
+    title: t("team.secretary"),
     pictureSrc: picAngela,
   },
   {
     name: "Miguel Sánchez",
-    title: dictionary.treasurer,
+    title: t("team.treasurer"),
     pictureSrc: picMiguel,
   },
   {
     name: "Sara de Miguel",
-    title: dictionary.gestionproyecto,
+    title: t("team.gestionproyecto"),
     pictureSrc: picSara,
   },
   {
     name: "Lua Santamaría",
-    title: dictionary.redessociais,
+    title: t("team.redessociais"),
     pictureSrc: picLua,
   },
 ];

@@ -19,7 +19,6 @@ export const Primary: Story = {
       google: false,
       stripe: false,
     },
-    lang: "es",
     onSavedPreferences: () => {},
   },
 };

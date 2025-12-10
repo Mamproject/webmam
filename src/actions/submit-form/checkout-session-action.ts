@@ -1,8 +1,7 @@
 "use server";
 
-import { getDictionary } from "@/i18n/get-dictionary";
-import type { Locale } from "@/i18n/i18n-config";
 import { stripe } from "@/lib/stripe";
+import { getTranslations } from "next-intl/server";
 import type { TCheckoutFormWithMeta } from "@/utils/form-schemas";
 import { CheckoutFormSchemaWithMeta } from "@/utils/form-schemas";
 import { Value } from "@sinclair/typebox/value";
@@ -27,7 +26,7 @@ export async function checkoutSessionAction(formData: TCheckoutFormWithMeta): Pr
       terms: "true",
     }).toString();
 
-    const dictionary = await getDictionary(body.locale as Locale);
+    const t = await getTranslations();
     const mode = body.frequency === "one-time" ? "payment" : "subscription";
     const session = await stripe.checkout.sessions.create({
       line_items: [
@@ -35,8 +34,8 @@ export async function checkoutSessionAction(formData: TCheckoutFormWithMeta): Pr
           price_data: {
             currency: "eur",
             product_data: {
-              name: dictionary.violet_bricks,
-              description: dictionary.violet_bricks_description,
+              name: t("navigation.violet_bricks"),
+              description: t("violetBricks.violet_bricks_description"),
             },
             unit_amount: body.amount,
             recurring: getRecurringSettings(body.frequency),
@@ -48,7 +47,7 @@ export async function checkoutSessionAction(formData: TCheckoutFormWithMeta): Pr
       success_url: `${body.origin}/${body.locale}/join?initialView=success`,
       cancel_url: `${body.origin}/${body.locale}/join?${cancelSearchParams}`,
       invoice_creation: mode === "payment" ? { enabled: true } : undefined,
-      locale: body.locale as Locale,
+      locale: body.locale as Stripe.Checkout.SessionCreateParams.Locale,
     });
     return {
       status: "success",

@@ -1,4 +1,3 @@
-import type { LocalizedString } from "@/i18n/localized-string";
 import type { StaticImageData } from "next/image";
 import type { ReactNode, FC } from "react";
 import Image from "next/image";
@@ -7,7 +6,7 @@ interface SmallArticleProps {
   title: ReactNode;
   description: ReactNode;
   pictureSrc: StaticImageData;
-  pictureAlt: LocalizedString;
+  pictureAlt: string;
   /** Add priority to image, disables lazy loading */
   priority?: boolean;
 }

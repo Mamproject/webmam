@@ -6,19 +6,15 @@ import Button from "@/components/Button";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
 import RocketSection from "@/components/RocketSection";
-import { getDictionary } from "@/i18n/get-dictionary";
 import { socialMediaData } from "@/settings/socialMedia";
 import { ArrowTopRightOnSquareIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 import Link from "next/link";
+import { getTranslations } from "next-intl/server";
 import specialNeedsChildrenPic from "../../assets/special_needs_children.png";
-import type { Locale } from "../../i18n/i18n-config";
 
-export default async function Home(props: { params: Promise<{ lang: Locale }> }) {
-  const params = await props.params;
-  const { lang } = params;
-
-  const dictionary = await getDictionary(lang);
+export default async function Home() {
+  const t = await getTranslations();
 
   return (
     <main>
@@ -26,7 +22,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
         <div className="relative h-[40vh] w-full md:h-full">
           <Image
             src={section1Pic}
-            alt={dictionary.gladys_with_children}
+            alt={t("home.gladys_with_children")}
             fill
             className="object-cover"
             priority
@@ -42,16 +38,16 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
                 MAM PROJECT
               </Heading>
 
-              <p className="font-montserrat mb-4 text-base text-white">{dictionary.mam_description}</p>
+              <p className="font-montserrat mb-4 text-base text-white">{t("home.mam_description")}</p>
 
               <div className="flex gap-4">
                 <Button className="w-fit" color="white" asChild>
-                  <Link href="/join">{dictionary.support}</Link>
+                  <Link href="/join">{t("common.support")}</Link>
                 </Button>
 
                 <Button className="w-fit" color="white" asChild>
                   <a href="https://donate.stripe.com/28oaEGgwK9RMgs8eUV" target="_blank">
-                    {dictionary.become_member}
+                    {t("navigation.become_member")}
                   </a>
                 </Button>
               </div>
@@ -63,14 +59,14 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
       <article className="mb-10">
         <Container horizontal>
           <Heading level={2} color="purple" className="text-center normal-case">
-            {dictionary.bridge_people_title}
+            {t("home.bridge_people_title")}
           </Heading>
 
           <div className="flex flex-col items-center gap-8 md:flex-row">
             <div className="flex-1">
               <Image
                 src={spainAfricaPic}
-                alt={dictionary.spain_africa_pic}
+                alt={t("home.spain_africa_pic")}
                 sizes="(min-width: 768px) 50vw, 100vw"
                 placeholder="blur"
                 priority
@@ -78,9 +74,9 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
             </div>
 
             <div className="flex-1">
-              <p className="mb-4">{dictionary.spain_africa_text_1}</p>
-              <p className="mb-4">{dictionary.spain_africa_text_2}</p>
-              <p>{dictionary.spain_africa_text_3}</p>
+              <p className="mb-4">{t("home.spain_africa_text_1")}</p>
+              <p className="mb-4">{t("home.spain_africa_text_2")}</p>
+              <p>{t("home.spain_africa_text_3")}</p>
             </div>
           </div>
         </Container>
@@ -89,27 +85,27 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
       <article className="mb-10">
         <Container horizontal>
           <Heading level={2} color="purple">
-            {dictionary.building_bridges}...
+            {t("home.building_bridges")}...
           </Heading>
 
           <div className="mb-8 flex flex-col flex-wrap items-center gap-4 md:flex-row md:items-start md:justify-around md:gap-8 md:pl-8">
             <RocketSection
               src={specialNeedsChildrenPic}
-              title={dictionary.special_needs_children_pic}
-              description={dictionary.rs_1}
+              title={t("home.special_needs_children_pic")}
+              description={t("home.rs_1")}
             />
-            <RocketSection src={momsSnc} title={dictionary.moms_snc_pic} description={dictionary.rs_2} />
-            <RocketSection src={educationPic} title={dictionary.students} description={dictionary.rs_3} />
+            <RocketSection src={momsSnc} title={t("home.moms_snc_pic")} description={t("home.rs_2")} />
+            <RocketSection src={educationPic} title={t("home.students")} description={t("home.rs_3")} />
           </div>
 
-          <p>{dictionary.bullets_footer}</p>
+          <p>{t("home.bullets_footer")}</p>
         </Container>
       </article>
 
       <article className="bg-purple mb-10">
         <div className="mx-auto max-w-lg px-8 py-10">
           <Heading level={2} color="white" className="m-0! text-center uppercase">
-            {dictionary.build_a_home}
+            {t("about.build_a_home")}
           </Heading>
         </div>
       </article>
@@ -120,7 +116,7 @@ export default async function Home(props: { params: Promise<{ lang: Locale }> })
           href={socialMediaData.instagram.url}
           className="text-purple text-center text-xl hover:underline"
         >
-          {dictionary.follow_instagram}
+          {t("home.follow_instagram")}
           <ArrowTopRightOnSquareIcon className="ml-1 inline h-5 w-5" />
         </a>
       </article>

@@ -1,17 +1,16 @@
-import type { LocalizedString } from "@/i18n/localized-string";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import type { FC } from "react";
 
 interface PictureCardProps {
   src: StaticImageData;
-  title: LocalizedString;
+  title: string;
 }
 
 const PictureCard: FC<PictureCardProps> = ({ src, title }) => {
   return (
-    <div className="flex flex-col gap-8 w-64">
-      <div className="relative w-64 h-64">
+    <div className="flex w-64 flex-col gap-8">
+      <div className="relative h-64 w-64">
         <Image src={src} alt={title} fill className="object-contain" />
       </div>
 

@@ -7,11 +7,10 @@ import TextInput from "@/components/TextInput";
 import { useToast } from "@/components/Toast";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 import { useValidation } from "@/hooks/useValidation";
-import type { Dictionary } from "@/i18n/dictionaries/es";
-import type { Locale } from "@/i18n/i18n-config";
 import { useCookiesToast } from "@/utils/default-toasts";
 import type { TCheckoutForm } from "@/utils/form-schemas";
 import getStripe from "@/utils/get-stripe";
+import { useTranslations, useLocale } from "next-intl";
 import type { FC } from "react";
 import { useEffect, useState } from "react";
 import type { SubmitHandler } from "react-hook-form";
@@ -25,16 +24,12 @@ const frequencyOptions = {
 } satisfies Record<string, TCheckoutForm["frequency"]>;
 
 interface DonateFormProps {
-  dictionary: Dictionary;
-  locale: Locale;
   initialFormValues?: TCheckoutForm;
 }
 
-const DonateForm: FC<DonateFormProps> = ({
-  dictionary,
-  locale,
-  initialFormValues = { frequency: frequencyOptions.monthly },
-}) => {
+const DonateForm: FC<DonateFormProps> = ({ initialFormValues = { frequency: frequencyOptions.monthly } }) => {
+  const t = useTranslations();
+  const locale = useLocale();
   const {
     register,
     handleSubmit,
@@ -43,10 +38,10 @@ const DonateForm: FC<DonateFormProps> = ({
   } = useForm<TCheckoutForm>({
     defaultValues: initialFormValues,
   });
-  const validation = useValidation(dictionary);
+  const validation = useValidation();
   const [isLoading, setIsLoading] = useState(false);
   const toast = useToast();
-  const cookiesErrorToast = useCookiesToast(dictionary);
+  const cookiesErrorToast = useCookiesToast();
 
   const onSubmit: SubmitHandler<TCheckoutForm> = async ({ amount, ...data }) => {
     toast(undefined);
@@ -65,8 +60,8 @@ const DonateForm: FC<DonateFormProps> = ({
     } catch {
       toast({
         status: "error",
-        title: dictionary.form_error_title,
-        description: dictionary.retry_or_contact.replace("{email}", process.env.NEXT_PUBLIC_EMAIL!),
+        title: t("forms.form_error_title"),
+        description: t("forms.retry_or_contact", { email: process.env.NEXT_PUBLIC_EMAIL! }),
       });
     } finally {
       setIsLoading(false);
@@ -85,12 +80,12 @@ const DonateForm: FC<DonateFormProps> = ({
         defaultValue="monthly"
         render={({ field: { onChange, ...field } }) => (
           <label className="flex flex-col gap-1">
-            <span>{dictionary.donation_frequency}</span>
+            <span>{t("donate.donation_frequency")}</span>
             <ToggleGroup variant="outline" type="single" className="w-fit" onValueChange={onChange} {...field}>
-              <ToggleGroupItem value={frequencyOptions.oneTime}>{dictionary.donate_once}</ToggleGroupItem>
-              <ToggleGroupItem value={frequencyOptions.monthly}>{dictionary.donate_monthly}</ToggleGroupItem>
-              <ToggleGroupItem value={frequencyOptions.quarterly}>{dictionary.donate_quarterly}</ToggleGroupItem>
-              <ToggleGroupItem value={frequencyOptions.yearly}>{dictionary.donate_yearly}</ToggleGroupItem>
+              <ToggleGroupItem value={frequencyOptions.oneTime}>{t("donate.donate_once")}</ToggleGroupItem>
+              <ToggleGroupItem value={frequencyOptions.monthly}>{t("donate.donate_monthly")}</ToggleGroupItem>
+              <ToggleGroupItem value={frequencyOptions.quarterly}>{t("donate.donate_quarterly")}</ToggleGroupItem>
+              <ToggleGroupItem value={frequencyOptions.yearly}>{t("donate.donate_yearly")}</ToggleGroupItem>
             </ToggleGroup>
           </label>
         )}
@@ -100,20 +95,19 @@ const DonateForm: FC<DonateFormProps> = ({
         className="w-fit"
         type="number"
         step={0.01}
-        label={dictionary.donation_amount}
+        label={t("donate.donation_amount")}
         error={errors.amount?.message}
         {...register("amount", {
           ...validation.required,
-          min: { value: 1, message: dictionary.donation_amount_min.replace("{min}", "1") },
+          min: { value: 1, message: t("donate.donation_amount_min", { min: 1 }) },
         })}
       />
       <Controller
         name="terms"
         control={control}
-        rules={{ validate: (value) => value === true || dictionary.accept_gdpr }}
+        rules={{ validate: (value) => value === true || t("forms.accept_gdpr") }}
         render={({ field }) => (
           <TermsField
-            dictionary={dictionary}
             color="purple"
             checked={field.value}
             onCheckedChange={field.onChange}
@@ -123,7 +117,7 @@ const DonateForm: FC<DonateFormProps> = ({
       />
       <div>
         <Button type="submit" className="w-fit" color="purple" loading={isLoading}>
-          {dictionary.continue}
+          {t("common.continue")}
         </Button>
       </div>
     </form>

@@ -1,12 +1,11 @@
-import type { LocalizedString } from "@/i18n/localized-string";
 import type { StaticImageData } from "next/image";
 import Image from "next/image";
 import type { FC } from "react";
 
 interface RocketSectionProps {
   src: StaticImageData | string;
-  title: LocalizedString;
-  description: LocalizedString;
+  title: string;
+  description: string;
 }
 
 const RocketSection: FC<RocketSectionProps> = ({ src, title, description }) => {
@@ -21,7 +20,7 @@ const RocketSection: FC<RocketSectionProps> = ({ src, title, description }) => {
           placeholder="blur"
           sizes="(min-width: 425) 60vw, (min-width: 425) 60vw, 100vw"
         />
-        <div className="absolute inset-0 z-10 flex items-center justify-center bg-purple p-10 text-center text-white opacity-0 transition-opacity group-hover:opacity-100">
+        <div className="bg-purple absolute inset-0 z-10 flex items-center justify-center p-10 text-center text-white opacity-0 transition-opacity group-hover:opacity-100">
           {title}
         </div>
       </div>

@@ -1,10 +1,9 @@
 "use client";
-import type { Dictionary } from "@/i18n/dictionaries/es";
-import type { LocalizedString } from "@/i18n/localized-string";
 import { ColorVariant, oppositeVariant } from "@/types/theme";
 import { cx } from "class-variance-authority";
+import { useTranslations } from "next-intl";
 import Link from "next/link";
-import type { FC} from "react";
+import type { FC } from "react";
 import { useState } from "react";
 import Button from "./Button";
 import Container from "./Container";
@@ -13,15 +12,11 @@ import Logo from "./Logo";
 import Menu from "./Menu";
 
 export interface NavbarProps {
-  dictionary: Dictionary;
   variant: ColorVariant;
-  labels: {
-    support: LocalizedString;
-    close: LocalizedString;
-  };
 }
 
-const Navbar: FC<NavbarProps> = ({ variant, dictionary, labels }) => {
+const Navbar: FC<NavbarProps> = ({ variant }) => {
+  const t = useTranslations();
   const [menuIsOpen, setMenuIsOpen] = useState(false);
 
   const handleHamburgerClick = () => setMenuIsOpen((prev) => !prev);
@@ -30,7 +25,7 @@ const Navbar: FC<NavbarProps> = ({ variant, dictionary, labels }) => {
 
   return (
     <>
-      <Menu open={menuIsOpen} onClose={handleHamburgerClick} dictionary={dictionary} closeLabel={labels.close} />
+      <Menu open={menuIsOpen} onClose={handleHamburgerClick} />
       <nav className={cx(styleSettings[variant].background, "relative z-10 shadow-md")}>
         <Container horizontal className="flex h-16 items-center justify-between md:h-18">
           <Hamburger variant={contrastVariant} onClick={handleHamburgerClick} />
@@ -40,7 +35,7 @@ const Navbar: FC<NavbarProps> = ({ variant, dictionary, labels }) => {
             </Link>
           </div>
           <Button disabled color={contrastVariant} asChild>
-            <Link href="/join">{labels.support}</Link>
+            <Link href="/join">{t("common.support")}</Link>
           </Button>
         </Container>
       </nav>

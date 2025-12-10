@@ -3,7 +3,6 @@
 import { submitFormAction } from "@/actions/submit-form/submit-form-action";
 import type { ImperativeToastInput } from "@/components/Toast";
 import { useToast } from "@/components/Toast";
-import type { Dictionary } from "@/i18n/dictionaries/es";
 import { grecaptchaActions } from "@/settings/grecaptcha-actions";
 import { useCookiesToast } from "@/utils/default-toasts";
 import type { TFormKeys } from "@/utils/form-schemas";
@@ -18,10 +17,10 @@ export interface ToastData {
   error: ImperativeToastInput;
 }
 
-export const useSendForm = (formKey: TFormKeys, toastData: ToastData, dictionary: Dictionary) => {
+export const useSendForm = (formKey: TFormKeys, toastData: ToastData) => {
   const [loading, startTransition] = useTransition();
   const toast = useToast();
-  const toastCookieError = useCookiesToast(dictionary);
+  const toastCookieError = useCookiesToast();
 
   const onSubmit: SubmitHandler<TFormData> = async (data) => {
     toast(undefined);

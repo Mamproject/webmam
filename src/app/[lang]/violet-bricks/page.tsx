@@ -6,8 +6,7 @@ import { BigArticle } from "@/components/Article";
 import Button from "@/components/Button";
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
-import { getDictionary } from "@/i18n/get-dictionary";
-import type { Locale } from "@/i18n/i18n-config";
+import { useLocale, useTranslations } from "next-intl";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -16,60 +15,58 @@ const bridges = {
   es: bridgesEs,
 };
 
-export default async function PurpleBricks(props: { params: Promise<{ lang: Locale }> }) {
-  const params = await props.params;
-  const { lang } = params;
-
-  const dictionary = await getDictionary(lang);
+export default function PurpleBricks() {
+  const t = useTranslations();
+  const locale = useLocale();
 
   return (
     <main className="py-8">
       <Container horizontal>
         <Heading level={1} color="purple" className="text-center">
-          {dictionary.violet_bricks}
+          {t("navigation.violet_bricks")}
         </Heading>
         <div className="mb-16 flex flex-col gap-16">
           <BigArticle
-            title={dictionary.build_a_home}
-            description={dictionary.violet_bricks_description}
+            title={t("about.build_a_home")}
+            description={t("violetBricks.violet_bricks_description")}
             pictureSrc={kenyaHomeImg}
-            pictureAlt={dictionary.kenya_home_alt}
+            pictureAlt={t("images.kenya_home_alt")}
             imageAlign="left"
             priority
           />
           <BigArticle
-            title={dictionary.bridge_people}
-            description={dictionary.bridge_partners_description}
+            title={t("navigation.bridge_people")}
+            description={t("violetBricks.bridge_partners_description")}
             pictureSrc={wheelchairKidsImg}
-            pictureAlt={dictionary.wheelchair_kids_alt}
+            pictureAlt={t("images.wheelchair_kids_alt")}
             imageAlign="right"
             priority
           />
         </div>
 
         <Heading level={1} color="purple" className="mb-0! text-center">
-          {dictionary.what_we_do}
+          {t("navigation.what_we_do")}
         </Heading>
       </Container>
 
-      <Image alt={dictionary.what_we_do} src={bridges[lang]} className="-my-4 mx-auto" />
+      <Image alt={t("navigation.what_we_do")} src={bridges[locale as keyof typeof bridges]} className="mx-auto -my-4" />
 
-      <div className="my-16 bg-purple p-8">
+      <div className="bg-purple my-16 p-8">
         <Heading level={2} color="white" className="m-0! text-center uppercase">
-          {dictionary.brick_value}
+          {t("violetBricks.brick_value")}
         </Heading>
       </div>
 
       <Container horizontal className="flex flex-col gap-16">
         <article>
           <Heading level={2} color="purple">
-            {dictionary.what_is_a_violet_brick_question}
+            {t("violetBricks.what_is_a_violet_brick_question")}
           </Heading>
 
-          <p className="mb-4">{dictionary.what_is_a_violet_brick_answer}</p>
+          <p className="mb-4">{t("violetBricks.what_is_a_violet_brick_answer")}</p>
 
           <Button color="purple" variant="primary" className="mx-auto block w-fit px-4" asChild>
-            <Link href="/join">{dictionary.support}</Link>
+            <Link href="/join">{t("common.support")}</Link>
           </Button>
         </article>
       </Container>

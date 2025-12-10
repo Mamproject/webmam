@@ -1,5 +1,4 @@
 import brick from "@/assets/brick.png";
-import type { LocalizedString } from "@/i18n/localized-string";
 import { ChevronRightIcon } from "@heroicons/react/24/solid";
 import * as Accordion from "@radix-ui/react-accordion";
 import * as Dialog from "@radix-ui/react-dialog";
@@ -8,7 +7,7 @@ import Link from "next/link";
 import type { FC, PropsWithChildren } from "react";
 
 interface MenuSectionBaseProps {
-  title: LocalizedString;
+  title: string;
 }
 
 interface MenuSectionLinkProps extends MenuSectionBaseProps {

@@ -1,60 +1,56 @@
 import Container from "@/components/Container";
 import Heading from "@/components/Heading";
-import { getDictionary } from "@/i18n/get-dictionary";
-import type { Locale } from "@/i18n/i18n-config";
+import { useTranslations } from "next-intl";
 
-export default async function Transparency(props: { params: Promise<{ lang: Locale }> }) {
-  const params = await props.params;
-  const { lang } = params;
-
-  const dictionary = await getDictionary(lang);
+export default function Transparency() {
+  const t = useTranslations();
 
   return (
     <main className="py-8">
       <Container horizontal>
         <Heading level={1} color="purple" className="text-center">
-          {dictionary.transparency}
+          {t("navigation.transparency")}
         </Heading>
-        <p className="mt-4 text-lg text-gray-700">{dictionary.transparency_explain}</p>
+        <p className="mt-4 text-lg text-gray-700">{t("transparency.transparency_explain")}</p>
       </Container>
 
       <Container id="organigrama" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="mb-4 text-center">
-            {dictionary.organigrama}
+            {t("navigation.organigrama")}
           </Heading>
-          <p className="mb-6 text-lg text-gray-700">{dictionary.en_construccion}</p>
+          <p className="mb-6 text-lg text-gray-700">{t("transparency.en_construccion")}</p>
         </section>
       </Container>
 
       <Container id="donde_va_tu_dinero" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="mb-4 text-center">
-            {dictionary.donde_va_tu_dinero}
+            {t("navigation.donde_va_tu_dinero")}
           </Heading>
-          <p className="mb-6 text-lg text-gray-700">{dictionary.en_construccion}</p>
+          <p className="mb-6 text-lg text-gray-700">{t("transparency.en_construccion")}</p>
         </section>
       </Container>
 
       <Container id="construyendo_puentes" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="mb-4 text-center">
-            {dictionary.construyendo_puentes}
+            {t("navigation.construyendo_puentes")}
           </Heading>
-          <p className="mb-6 text-lg text-gray-700">{dictionary.en_construccion}</p>
+          <p className="mb-6 text-lg text-gray-700">{t("transparency.en_construccion")}</p>
         </section>
       </Container>
 
       <Container id="canal_denuncias" horizontal className="mt-8">
         <section>
           <Heading level={2} color="purple" className="mb-4 text-center">
-            {dictionary.canal_denuncias}
+            {t("navigation.canal_denuncias")}
           </Heading>
           <a
             href="mailto: mamprojectukunda@gmail.com"
-            className="inline-block rounded-lg bg-purple px-6 py-3 text-lg font-semibold text-white transition hover:bg-purple"
+            className="bg-purple hover:bg-purple inline-block rounded-lg px-6 py-3 text-lg font-semibold text-white transition"
           >
-            {dictionary.text_canal_denuncias}
+            {t("transparency.text_canal_denuncias")}
           </a>
         </section>
       </Container>

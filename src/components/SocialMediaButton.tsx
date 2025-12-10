@@ -1,17 +1,17 @@
 import type { FC } from "react";
 import Image from "next/image";
-import type { SocialMediaType} from "@/settings/socialMedia";
+import type { SocialMediaType } from "@/settings/socialMedia";
 import { socialMediaData } from "@/settings/socialMedia";
-import type { Dictionary } from "@/i18n/dictionaries/es";
+import { useTranslations } from "next-intl";
 
 export interface SocialMediaButtonProps {
   variant: SocialMediaType;
-  dictionary: Dictionary;
 }
 
-const SocialMediaButton: FC<SocialMediaButtonProps> = ({ variant, dictionary }) => {
+const SocialMediaButton: FC<SocialMediaButtonProps> = ({ variant }) => {
+  const t = useTranslations();
   const name = variant;
-  const buttonAccessibilityLabel = dictionary.open_new_tab.replace("{name}", name);
+  const buttonAccessibilityLabel = t("accessibility.open_new_tab", { name });
 
   return (
     <a
@@ -21,7 +21,7 @@ const SocialMediaButton: FC<SocialMediaButtonProps> = ({ variant, dictionary }) 
       aria-label={buttonAccessibilityLabel}
       title={buttonAccessibilityLabel}
     >
-      <Image src={socialMediaData[variant].logo} alt={dictionary.logo.replace("{name}", name)} />
+      <Image src={socialMediaData[variant].logo} alt={t("accessibility.logo", { name })} />
     </a>
   );
 };

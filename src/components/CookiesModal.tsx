@@ -1,11 +1,10 @@
 "use client";
 
 import type { AppCookies } from "@/cookies/settings";
-import type { Dictionary } from "@/i18n/dictionaries/es";
-import type { Locale } from "@/i18n/i18n-config";
 import * as Dialog from "@radix-ui/react-dialog";
 import type { MDXProps } from "mdx/types";
 import dynamic from "next/dynamic";
+import { useTranslations, useLocale } from "next-intl";
 import type { ComponentType, FC } from "react";
 import { useTransition } from "react";
 import { Controller, useForm } from "react-hook-form";
@@ -18,12 +17,10 @@ import { DialogClose, DialogContent, DialogOverlay, DialogPortal } from "./Dialo
 import LoadingFallback from "./LoadingFallback";
 
 interface CookiesModalProps {
-  dictionary: Dictionary;
   cookies: AppCookies;
   open: boolean;
   onOpenChange: (open: boolean) => void;
   onSavedPreferences: () => void;
-  lang: Locale;
   customizeCookiesAction: (cookies: AppCookies) => Promise<void>;
 }
 
@@ -31,20 +28,20 @@ const LazyEsPolicy = dynamic(() => import("@/i18n/mdx/cookies-es.mdx"), {
   loading: () => <LoadingFallback />,
 });
 
-const PoliciesDict: Record<Locale, ComponentType<MDXProps>> = {
+const PoliciesDict: Record<string, ComponentType<MDXProps>> = {
   es: LazyEsPolicy,
 };
 
 const CookiesModal: FC<CookiesModalProps> = ({
-  dictionary,
   cookies,
   open,
   onOpenChange,
-  lang,
   onSavedPreferences,
   customizeCookiesAction,
 }) => {
-  const Policy = PoliciesDict[lang];
+  const t = useTranslations();
+  const locale = useLocale();
+  const Policy = PoliciesDict[locale];
   const toast = useToast();
   const [loading, startTransition] = useTransition();
   const { handleSubmit, control } = useForm<AppCookies>({ defaultValues: cookies });
@@ -56,8 +53,8 @@ const CookiesModal: FC<CookiesModalProps> = ({
         await customizeCookiesAction(data);
         toast({
           status: "success",
-          title: dictionary.common_form_success,
-          description: dictionary.preferences_saved,
+          title: t("forms.common_form_success"),
+          description: t("cookies.preferences_saved"),
           duration: 5000,
           hideCloseButton: true,
         });
@@ -65,8 +62,8 @@ const CookiesModal: FC<CookiesModalProps> = ({
       } catch {
         toast({
           status: "error",
-          title: dictionary.form_error_title,
-          description: dictionary.preferences_not_saved,
+          title: t("forms.form_error_title"),
+          description: t("cookies.preferences_not_saved"),
           duration: 5000,
           hideCloseButton: true,
         });
@@ -79,13 +76,13 @@ const CookiesModal: FC<CookiesModalProps> = ({
       <DialogPortal>
         <DialogOverlay />
         <DialogContent>
-          <DialogClose aria-label={dictionary.close} />
+          <DialogClose aria-label={t("common.close")} />
 
-          <Dialog.Title className="sr-only">{dictionary.cookies_policy}</Dialog.Title>
+          <Dialog.Title className="sr-only">{t("cookies.cookies_policy")}</Dialog.Title>
           <MdxStyler className="prose-headings:mt-4 overflow-y-auto px-4 py-4 text-sm md:px-8 md:py-8">
             <Dialog.Title asChild>
               <Heading level={2} color="purple" className="mt-0 uppercase">
-                {dictionary.cookies_policy}
+                {t("cookies.cookies_policy")}
               </Heading>
             </Dialog.Title>
             <Policy
@@ -96,7 +93,7 @@ const CookiesModal: FC<CookiesModalProps> = ({
                     name="essential"
                     render={({ field: { value, onChange, ...field } }) => (
                       <Checkbox
-                        label={dictionary.accept_cookies_cookie}
+                        label={t("cookies.accept_cookies_cookie")}
                         checked={value}
                         onCheckedChange={onChange}
                         {...field}
@@ -108,7 +105,7 @@ const CookiesModal: FC<CookiesModalProps> = ({
                     name="google"
                     render={({ field: { value, onChange, ...field } }) => (
                       <Checkbox
-                        label={dictionary.google_cookies}
+                        label={t("cookies.google_cookies")}
                         checked={value}
                         onCheckedChange={onChange}
                         {...field}
@@ -120,7 +117,7 @@ const CookiesModal: FC<CookiesModalProps> = ({
                     name="stripe"
                     render={({ field: { value, onChange, ...field } }) => (
                       <Checkbox
-                        label={dictionary.stripe_cookies}
+                        label={t("cookies.stripe_cookies")}
                         checked={value}
                         onCheckedChange={onChange}
                         {...field}
@@ -128,7 +125,7 @@ const CookiesModal: FC<CookiesModalProps> = ({
                     )}
                   />
                   <Button type="submit" variant="primary" size="sm" className="w-fit" loading={loading}>
-                    {dictionary.save_preferences}
+                    {t("cookies.save_preferences")}
                   </Button>
                 </form>
               }

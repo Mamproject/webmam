@@ -1,26 +1,26 @@
 "use client";
 
-import type { Dictionary } from "@/i18n/dictionaries/es";
 import { useStore } from "@/store";
 import type { Root as CheckboxRoot } from "@radix-ui/react-checkbox";
-import type { ElementRef } from "react";
+import { useTranslations } from "next-intl";
+import type { ComponentRef } from "react";
 import { forwardRef } from "react";
 import type { CheckboxProps } from "./Checkbox";
 import Checkbox from "./Checkbox";
 
 interface TermsFieldProps extends Omit<CheckboxProps, "label"> {
-  dictionary: Dictionary;
   error?: string;
   labelClassName?: string;
 }
 
-const TermsField = forwardRef<ElementRef<typeof CheckboxRoot>, TermsFieldProps>(
-  ({ labelClassName, dictionary, error, ...checkboxProps }, ref) => {
+const TermsField = forwardRef<ComponentRef<typeof CheckboxRoot>, TermsFieldProps>(
+  ({ labelClassName, error, ...checkboxProps }, ref) => {
+    const t = useTranslations();
     const setTermsModal = useStore((state) => state.setTermsModal);
 
     const label = (
       <p className={labelClassName}>
-        <span>{dictionary.accept_terms_1}</span>
+        <span>{t("terms.accept_terms_1")}</span>
         <a
           href="#"
           onClick={(e) => {
@@ -29,7 +29,7 @@ const TermsField = forwardRef<ElementRef<typeof CheckboxRoot>, TermsFieldProps>(
           }}
           className="inline font-medium underline"
         >
-          {dictionary.accept_terms_2}
+          {t("terms.accept_terms_2")}
         </a>
       </p>
     );

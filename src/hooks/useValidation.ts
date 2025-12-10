@@ -1,19 +1,21 @@
-import type { Dictionary } from "@/i18n/dictionaries/es";
+import { useTranslations } from "next-intl";
 import { rEmail } from "@/utils/regex";
 
-export const useValidation = (dictionary: Dictionary) => {
+export const useValidation = () => {
+  const t = useTranslations();
+
   const max = (max: number) => ({
     value: max,
-    message: maxLengthError(dictionary, max),
+    message: t("forms.max_length", { max }),
   });
   const required = () => ({
     value: true,
-    message: dictionary.required_field,
+    message: t("forms.required_field"),
   });
   const email = () => ({
     required: required(),
-    pattern: { value: rEmail, message: dictionary.invalid_email },
-    maxLength: { value: 255, message: maxLengthError(dictionary, 255) },
+    pattern: { value: rEmail, message: t("forms.invalid_email") },
+    maxLength: { value: 255, message: t("forms.max_length", { max: 255 }) },
   });
   const standardText = () => ({
     required: required(),
@@ -22,5 +24,3 @@ export const useValidation = (dictionary: Dictionary) => {
 
   return { max, required, email, standardText };
 };
-
-const maxLengthError = (dict: Dictionary, max: number) => dict.max_length.replace("{max}", max.toString());

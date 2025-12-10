@@ -1,29 +1,25 @@
 "use client";
 
-import type { Dictionary } from "@/i18n/dictionaries/es";
-import type { Locale } from "@/i18n/i18n-config";
 import { useStore } from "@/store";
-import type { MdxDict } from "@/types/mdx-dict";
 import * as Dialog from "@radix-ui/react-dialog";
 import dynamic from "next/dynamic";
+import type { MDXProps } from "mdx/types";
+import { useTranslations, useLocale } from "next-intl";
 import type { FC } from "react";
 import { DialogClose, DialogContent, DialogOverlay, DialogPortal } from "./Dialog";
 import LoadingFallback from "./LoadingFallback";
 import MdxStyler from "./mdx-styler";
 
-const mdxDict: MdxDict = {
+const mdxDict: Record<string, React.ComponentType<MDXProps>> = {
   es: dynamic(() => import("@/i18n/mdx/terms-es.mdx"), {
     loading: () => <LoadingFallback />,
   }),
 };
 
-interface TermsModalProps {
-  dictionary: Dictionary;
-  locale: Locale;
-}
-
 /** The root and a trigger should be placed outside of the component */
-const TermsModal: FC<TermsModalProps> = ({ dictionary, locale }) => {
+const TermsModal: FC = () => {
+  const t = useTranslations();
+  const locale = useLocale();
   const MdxContent = mdxDict[locale];
   const setTermsModal = useStore((state) => state.setTermsModal);
   const termsModal = useStore((state) => state.termsModal);
@@ -33,9 +29,9 @@ const TermsModal: FC<TermsModalProps> = ({ dictionary, locale }) => {
       <DialogPortal>
         <DialogOverlay />
         <DialogContent className="flex flex-col">
-          <DialogClose aria-label={dictionary.close} />
-          <Dialog.DialogTitle className="sr-only">{dictionary.privacy_policy}</Dialog.DialogTitle>
-          <MdxStyler className="overflow-y-auto px-4 py-4 text-sm prose-headings:mt-4 md:px-8 md:py-8">
+          <DialogClose aria-label={t("common.close")} />
+          <Dialog.DialogTitle className="sr-only">{t("terms.privacy_policy")}</Dialog.DialogTitle>
+          <MdxStyler className="prose-headings:mt-4 overflow-y-auto px-4 py-4 text-sm md:px-8 md:py-8">
             <MdxContent />
           </MdxStyler>
         </DialogContent>

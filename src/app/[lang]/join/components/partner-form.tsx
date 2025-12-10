@@ -6,32 +6,27 @@ import TextArea from "@/components/TextArea";
 import TextInput from "@/components/TextInput";
 import { useSendForm } from "@/hooks/use-send-form";
 import { useValidation } from "@/hooks/useValidation";
-import type { Dictionary } from "@/i18n/dictionaries/es";
-import { formErrorToast, formSuccessToast } from "@/utils/default-toasts";
+import { useFormErrorToast, useFormSuccessToast } from "@/utils/default-toasts";
 import type { TCommonForm } from "@/utils/form-schemas";
+import { useTranslations } from "next-intl";
 import type { FC } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-interface Props {
-  dictionary: Dictionary;
-}
-
-const PartnerForm: FC<Props> = ({ dictionary }) => {
+const PartnerForm: FC = () => {
+  const t = useTranslations();
   const {
     register,
     handleSubmit,
     control,
     formState: { errors },
   } = useForm<TCommonForm>();
-  const validation = useValidation(dictionary);
-  const { onSubmit, loading } = useSendForm(
-    "partner",
-    {
-      success: formSuccessToast(dictionary),
-      error: formErrorToast(dictionary),
-    },
-    dictionary,
-  );
+  const validation = useValidation();
+  const errorToast = useFormErrorToast();
+  const successToast = useFormSuccessToast();
+  const { onSubmit, loading } = useSendForm("partner", {
+    success: successToast,
+    error: errorToast,
+  });
 
   return (
     <form className="flex flex-col gap-4" onSubmit={handleSubmit(onSubmit)}>
@@ -39,19 +34,19 @@ const PartnerForm: FC<Props> = ({ dictionary }) => {
         <TextInput
           variant="white"
           {...register("firstName", validation.standardText())}
-          label={dictionary.name}
+          label={t("forms.name")}
           error={errors.firstName?.message}
         />
         <TextInput
           variant="white"
           {...register("lastName", validation.standardText())}
-          label={dictionary.surname}
+          label={t("forms.surname")}
           error={errors.lastName?.message}
         />
         <TextInput
           variant="white"
           {...register("email", validation.email())}
-          label={dictionary.email}
+          label={t("forms.email")}
           error={errors.email?.message}
         />
         <TextInput
@@ -60,13 +55,13 @@ const PartnerForm: FC<Props> = ({ dictionary }) => {
             required: validation.required(),
             maxLength: validation.max(50),
           })}
-          label={dictionary.phone}
+          label={t("forms.phone")}
           error={errors.phone?.message}
         />
         <TextInput
           variant="white"
           {...register("location", validation.standardText())}
-          label={dictionary.location}
+          label={t("forms.location")}
           error={errors.location?.message}
         />
       </div>
@@ -75,16 +70,15 @@ const PartnerForm: FC<Props> = ({ dictionary }) => {
         className="mt-2"
         rows={5}
         {...register("message", { required: validation.required(), maxLength: validation.max(3000) })}
-        label={dictionary.about_you}
+        label={t("forms.about_you")}
         error={errors.message?.message}
       />
       <Controller
         name="terms"
         control={control}
-        rules={{ validate: (value) => value === true || dictionary.accept_gdpr }}
+        rules={{ validate: (value) => value === true || t("forms.accept_gdpr") }}
         render={({ field }) => (
           <TermsField
-            dictionary={dictionary}
             color="white"
             checked={field.value}
             onCheckedChange={field.onChange}
@@ -94,7 +88,7 @@ const PartnerForm: FC<Props> = ({ dictionary }) => {
       />
       <div>
         <Button type="submit" className="w-fit" color="white" loading={loading}>
-          {dictionary.send}
+          {t("common.send")}
         </Button>
       </div>
     </form>

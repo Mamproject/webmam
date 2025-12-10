@@ -3,21 +3,21 @@ import "server-only";
 import { antonio, montserrat, openSans } from "@/assets/fonts";
 import Footer from "@/components/Footer";
 import Navbar from "@/components/Navbar";
+import TermsModal from "@/components/TermsModal";
 import { ToastProvider } from "@/components/Toast";
 import WithCaptcha from "@/components/WithCaptcha";
 import { getAppCookies } from "@/cookies/get-app-cookies";
-import { getDictionary } from "@/i18n/get-dictionary";
+import { routing } from "@/i18n/routing";
+import { cn } from "@/lib/utils";
 import { ColorVariant } from "@/types/theme";
 import type { Metadata } from "next";
-import type { Locale } from "../../i18n/i18n-config";
-import { i18n } from "../../i18n/i18n-config";
+import type { Locale } from "next-intl";
+import { NextIntlClientProvider } from "next-intl";
 import "../../styles/globals.css";
 import CookiesManager from "./components/cookies-manager";
-import TermsModal from "@/components/TermsModal";
-import { cn } from "@/lib/utils";
 
 export async function generateStaticParams() {
-  return i18n.locales.map((locale) => ({ lang: locale }));
+  return routing.locales.map((locale) => ({ lang: locale }));
 }
 
 export const metadata: Metadata = {
@@ -29,7 +29,6 @@ export default async function Root(props: LayoutProps<"/[lang]">) {
   const { children } = props;
 
   const lang = params.lang as Locale;
-  const dictionary = await getDictionary(lang);
   const cookies = await getAppCookies();
 
   return (
@@ -43,19 +42,17 @@ export default async function Root(props: LayoutProps<"/[lang]">) {
           antonio.variable,
         )}
       >
-        <ToastProvider>
-          <Navbar
-            dictionary={dictionary}
-            labels={{ close: dictionary.close, support: dictionary.support }}
-            variant={ColorVariant.Purple}
-          />
-          <div className="relative flex grow flex-col overflow-scroll bg-white">
-            <div className="grow">{children}</div>
-            <Footer dictionary={dictionary} />
-          </div>
-          <CookiesManager dictionary={dictionary} cookies={cookies} lang={lang} />
-          <TermsModal dictionary={dictionary} locale={lang} />
-        </ToastProvider>
+        <NextIntlClientProvider>
+          <ToastProvider>
+            <Navbar variant={ColorVariant.Purple} />
+            <div className="relative flex grow flex-col overflow-scroll bg-white">
+              <div className="grow">{children}</div>
+              <Footer />
+            </div>
+            <CookiesManager cookies={cookies} />
+            <TermsModal />
+          </ToastProvider>
+        </NextIntlClientProvider>
       </body>
 
       <WithCaptcha googleCookies={cookies.google} />
