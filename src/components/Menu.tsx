@@ -6,6 +6,7 @@ import * as Accordion from "@radix-ui/react-accordion";
 import * as Dialog from "@radix-ui/react-dialog";
 import type { FC } from "react";
 import { useState } from "react";
+import { STRIPE_DONATION_URL } from "@/settings/links";
 import { MenuSectionLink, MenuSectionWrapper, MenuSubsectionLink } from "./MenuSection";
 
 export interface MenuProps {
@@ -59,7 +60,7 @@ const Menu: FC<MenuProps> = ({ open, onClose }) => {
                 <MenuSubsectionLink title={t("common.support")} href="/join" />
                 <MenuSubsectionLink title={t("createBrick.create_brick")} href="/join#create-brick" />
               </MenuSectionWrapper>
-              <MenuSectionLink title={t("navigation.become_member")} href="/become-member" />
+              <MenuSectionLink title={t("navigation.become_member")} href={STRIPE_DONATION_URL} target="_blank" />
               <MenuSectionWrapper
                 title={t("navigation.transparency")}
                 {...getAccordionItemHandlers(t("navigation.transparency"))}

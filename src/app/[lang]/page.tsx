@@ -1,3 +1,4 @@
+import { STRIPE_DONATION_URL } from "@/settings/links";
 import educationPic from "@/assets/education.jpg";
 import section1Pic from "@/assets/wheelchair_kids.jpg";
 import momsSnc from "@/assets/moms_snc.png";
@@ -46,7 +47,7 @@ export default async function Home() {
                 </Button>
 
                 <Button className="w-fit" color="white" asChild>
-                  <a href="https://donate.stripe.com/28oaEGgwK9RMgs8eUV" target="_blank">
+                  <a href={STRIPE_DONATION_URL} target="_blank">
                     {t("navigation.become_member")}
                   </a>
                 </Button>

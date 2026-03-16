@@ -12,6 +12,7 @@ interface MenuSectionBaseProps {
 
 interface MenuSectionLinkProps extends MenuSectionBaseProps {
   href: string;
+  target?: string;
 }
 
 interface MenuSectionWrapperProps extends PropsWithChildren<MenuSectionBaseProps> {
@@ -33,9 +34,9 @@ const MenuSectionBase: FC<MenuSectionBaseProps> = ({ title }) => (
   </span>
 );
 
-const MenuSectionLink: FC<MenuSectionLinkProps> = ({ href, title }) => (
+const MenuSectionLink: FC<MenuSectionLinkProps> = ({ href, title, target }) => (
   <Dialog.Close asChild>
-    <Link href={href} className="focus:outline-none">
+    <Link href={href} target={target} className="focus:outline-none">
       <MenuSectionBase title={title} />
     </Link>
   </Dialog.Close>
